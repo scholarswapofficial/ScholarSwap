@@ -1,0 +1,118 @@
+/* ================== INTRO SECTION ================== */
+
+.intro-section {
+  flex: 1.2;
+  background: #f5f7fb;
+
+  display: flex;
+  align-items: center;         
+  justify-content: flex-start;
+
+  padding: 40px 60px;
+}
+
+/* ================== CONTENT ================== */
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  max-width: 560px;      
+  width: 100%;
+
+  gap: 28px;    
+}
+
+/* ================== LOGO ================== */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+  }
+
+  span {
+    font-size: 22px;
+    font-weight: 700;
+  }
+}
+
+/* ================== IMAGE ================== */
+
+.intro-illustration {
+  width: 100%;
+  display: flex;
+  justify-content: center;  
+
+  img {
+    width: 100%;
+    max-width: 460px;       
+    height: auto;
+  }
+}
+
+/* ================== TEXT ================== */
+
+.intro-heading {
+  font-size: 44px;             
+  font-weight: 700;
+  line-height: 1.25;
+
+  width: 100%;
+  text-align: center;
+}
+
+.intro-subheading {
+  font-size: 16px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* ================== FEATURES ================== */
+
+.intro-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 15px;
+    color: #374151;
+
+    margin-bottom: 10px;
+  }
+}
+
+.tick-icon {
+  color: #22c55e;
+  width: 20px;              
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* ================== FINAL TAGLINE ================== */
+
+.intro-tagline {
+  font-size: 24px;
+  font-weight: 500;
+  color: #111827;
+  margin-top: 10px;
+}
+
+/* ================== RESPONSIVE ================== */
+
+@media (max-width: 768px) {
+  .intro-section {
+    display: none;
+  }
+}

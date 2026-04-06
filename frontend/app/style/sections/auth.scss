@@ -1,0 +1,316 @@
+/* ================= GLOBAL LAYOUT ================= */
+
+.auth-container {
+  display: flex;
+  height: 100vh;
+  background: #f8fafc;
+}
+
+/* ================= LEFT (INTRO) ================= */
+
+.intro-section {
+  flex: 1;
+  background: #f5f7fb;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  padding: 60px 80px;
+}
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  max-width: 520px;
+  width: 100%;
+
+  gap: 24px;
+}
+
+/* Logo */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  span {
+    font-size: 22px;
+    font-weight: 700;
+  }
+}
+
+/* Image */
+
+.intro-illustration {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+  }
+}
+
+/* Text */
+
+.intro-heading {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.3;
+
+  width: 100%;
+  text-align: center;
+}
+
+.intro-subheading {
+  font-size: 16px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Features */
+
+.intro-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 15px;
+    color: #374151;
+
+    margin-bottom: 10px;
+  }
+}
+
+.tick-icon {
+  color: #22c55e;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ================= RIGHT (AUTH FORM) ================= */
+
+.auth-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card */
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Heading */
+
+.auth-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.auth-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* Tabs */
+
+.auth-tabs {
+  display: flex;
+  margin-bottom: 20px;
+
+  button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: #f1f5f9;
+    cursor: pointer;
+    font-weight: 500;
+
+    &.active {
+      background: #6366f1;
+      color: white;
+    }
+  }
+}
+
+/* Inputs */
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+
+  label {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+
+    &:focus {
+      border-color: #6366f1;
+    }
+  }
+}
+
+/* Password */
+
+.password-wrapper {
+  position: relative;
+
+  input {
+    width: 100%;
+  }
+
+  .eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6b7280;
+  }
+}
+
+/* Dropdown */
+
+.select-field {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  outline: none;
+
+  &:focus {
+    border-color: #6366f1;
+  }
+}
+
+/* Button */
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: 500;
+
+  &:hover {
+    background: #4f46e5;
+  }
+}
+
+/* Divider */
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+
+  span {
+    background: #fff;
+    padding: 0 10px;
+    font-size: 12px;
+    color: #9ca3af;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #e5e7eb;
+    z-index: -1;
+  }
+}
+
+/* Google Button */
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 500;
+
+  &:hover {
+    background: #f9fafb;
+  }
+}
+
+/* ================== FOOTER ================== */
+
+.auth-footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+
+  font-size: 12px;
+  color: #9ca3af;
+
+  span {
+    cursor: pointer;
+    color: #6b7280;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+  .intro-section {
+    display: none;
+  }
+
+  .auth-right {
+    width: 100%;
+    padding: 20px;
+  }
+}
