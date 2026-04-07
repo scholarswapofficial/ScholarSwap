@@ -1,0 +1,96 @@
+.rightpanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+/* ================= FRIEND ================= */
+.friend-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.friend-item span {
+  font-weight: 500;
+}
+
+/* Buttons */
+.friend-item button {
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.friend-item button:first-child {
+  background: #10b981;
+  color: white;
+}
+
+.friend-item button:last-child {
+  background: #e5e7eb;
+}
+
+/* ================= CHAT ================= */
+.chat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.7rem;
+}
+
+.chat-item strong {
+  font-size: 0.9rem;
+}
+
+.chat-item span {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* ================= MARKETPLACE ================= */
+.note-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9fafb;
+  padding: 0.6rem;
+  border-radius: 10px;
+  margin-bottom: 0.6rem;
+}
+
+.note-card p {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.note-card span {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* ================= LIBRARY ================= */
+.library-item {
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: #f3f4f6;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}

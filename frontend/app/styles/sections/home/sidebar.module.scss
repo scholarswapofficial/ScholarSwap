@@ -1,0 +1,67 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.2rem 1rem;
+  background: #f8fafc;
+}
+
+/* Logo */
+.sidebar__top {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.sidebar__logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* Menu */
+.sidebar__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Nav Item */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #4b5563;
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #e5e7eb;
+  }
+}
+
+/* Active State (VERY IMPORTANT) */
+.nav-item.active {
+  background: #e0edff;
+  color: #2563eb;
+}
+
+/* Bottom Profile */
+.sidebar__bottom {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.sidebar__bottom p {
+  font-weight: 600;
+}
+
+.sidebar__bottom span {
+  font-size: 0.8rem;
+  color: #6b7280;
+}

@@ -6,25 +6,36 @@ import InputField from "@/components/molecules/InputField/InputField";
 import PasswordField from "@/components/molecules/PasswordField/PasswordField";
 import { FcGoogle } from "react-icons/fc";
 
+import styles from "@/styles/sections/auth/auth.module.scss";
+
 const AuthForm = () => {
   const [mode, setMode] = useState<"login" | "register">("login");
 
   return (
-    <div className="auth-card">
+    <div className={styles["auth-card"]}>
       {/* Heading */}
-      <h2 className="auth-title">Login to ScholarSwap</h2>
-      <p className="auth-subtitle">Welcome back! Please enter your details</p>
+      <h2 className={styles["auth-title"]}>
+        {mode === "login" ? "Login to ScholarSwap" : "Create an account"}
+      </h2>
+
+      <p className={styles["auth-subtitle"]}>
+        Welcome back! Please enter your details
+      </p>
 
       {/* Tabs */}
       <AuthTabs mode={mode} setMode={setMode} />
 
       {/* Form */}
-      <div className="form-fields">
+      <div className={styles["form-fields"]}>
         {mode === "register" && (
           <>
-            <InputField label="Name" type="text" placeholder="Enter your name" />
+            <InputField
+              label="Name"
+              type="text"
+              placeholder="Enter your name"
+            />
 
-            <select className="select-field">
+            <select className={styles["select-field"]}>
               <option>Select College</option>
               <option>IIT</option>
               <option>NIT</option>
@@ -34,20 +45,25 @@ const AuthForm = () => {
           </>
         )}
 
-        <InputField label="Email" type="email" placeholder="Enter your email" />
+        <InputField
+          label="Email"
+          type="email"
+          placeholder="Enter your email"
+        />
+
         <PasswordField />
 
-        <button className="submit-btn">
+        <button className={styles["submit-btn"]}>
           {mode === "login" ? "Login" : "Register"}
         </button>
 
         {/* Divider */}
-        <div className="divider">
+        <div className={styles["divider"]}>
           <span>OR</span>
         </div>
 
         {/* Google Login */}
-        <button className="google-btn">
+        <button className={styles["google-btn"]}>
           <FcGoogle size={20} />
           Continue with Google
         </button>
