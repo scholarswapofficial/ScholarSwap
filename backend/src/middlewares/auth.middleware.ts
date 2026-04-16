@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { verifyToken } from '../utils/jwt.js';
+import { verifyToken } from '../utils/jwt';
 
 export const protect = (req: Request, res: Response, next: NextFunction) => {
   const token = req.headers.authorization?.split(' ')[1];

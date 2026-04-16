@@ -1,32 +1,107 @@
 import bcrypt from 'bcryptjs';
-import { User } from '../models/user.model.js';
-import { generateToken } from '../utils/jwt.js';
+import { User } from '../models/user.model';
+// import { generateToken } from '../utils/jwt';
+import jwt from "jsonwebtoken";
+import console from 'node:console';
 
-export const registerUser = async (name: string, email: string, password: string) => {
+
+export const signupService = async (data: any) => {
+  const { name, email, password, college } = data;
+  // console.log("Signup data:", data);
+
+  if ( !email || !password) {
+    throw new Error("Name, email and password are required");
+  }
+
+  // return {name, email, password, college};
+
   const existing = await User.findOne({ email });
-  if (existing) throw new Error('User already exists');
+  if (existing) {
+  if (!existing.isVerified) {
+    //  Delete old unverified user
+    await User.deleteOne({ email });
+  } else {
+    throw new Error("User already exists");
+    }
+  }
 
-  const hashed = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  const token = jwt.sign(
+    { email },
+    process.env.EMAIL_VERIFY_SECRET!,
+    { expiresIn: "10m" }
+  );
 
   const user = await User.create({
     name,
     email,
-    password: hashed,
+    password: hashedPassword,
+    college,
+    verificationToken: token,
+    verificationTokenExpiry: Date.now() + 10 * 60 * 1000,
   });
-
-  const token = generateToken({ id: user._id });
 
   return { user, token };
 };
 
-export const loginUser = async (email: string, password: string) => {
+export const verifyEmailService = async (token: string) => {
+  try {
+    const decoded: any = jwt.verify(token, process.env.EMAIL_VERIFY_SECRET!);
+    // console.log("Decoded token:", decoded); // Debug log
+
+    const user = await User.findOne({
+      email: decoded.email,
+      verificationToken: token,
+    });
+
+    if (!user) throw new Error("Invalid token");
+
+    // ❗ Check expiry
+    if (user.verificationTokenExpiry! < new Date()) {
+      // ✅ DELETE USER if expired
+      await User.deleteOne({ _id: user._id });
+      throw new Error("Token expired, please signup again");
+    }
+
+    user.isVerified = true;
+    user.verificationToken = undefined;
+    user.verificationTokenExpiry = undefined;
+
+    await user.save();
+
+    return user;
+
+  } catch (err) {
+    throw new Error("Invalid or expired token");
+  }
+};
+
+
+
+
+export const loginService = async (email: string, password: string) => {
   const user = await User.findOne({ email });
-  if (!user) throw new Error('User not found');
+
+  if (!user || !user.password) {
+    throw new Error("Invalid credentials");
+  }
+
+  if (!user.isVerified) {
+    throw new Error("Please verify your email first");
+  }
 
   const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) throw new Error('Invalid credentials');
 
-  const token = generateToken({ id: user._id });
+  if (!isMatch) {
+    throw new Error("Wrong password");
+  }
+
+  const token = jwt.sign(
+    { id: user._id },
+    process.env.JWT_SECRET!,
+    { expiresIn: "7d" }
+  );
 
   return { user, token };
 };
