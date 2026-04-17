@@ -118,3 +118,21 @@ export const LIB_CARDS = [
     price: "₹9",
   },
 ];
+
+
+export const LIBRARY_HEADER = {
+  title: "Library",
+  subtitle: "India’s Academic Book Store",
+
+  filters: {
+    college: ["All Colleges", "IIT Bombay", "IIT Delhi", "NIT Trichy", "VIT"],
+    department: ["All", "CSE", "ECE", "Mechanical", "Civil"],
+    subject: ["All", "DBMS", "OS", "CN", "DSA", "Maths"],
+    semester: ["All", "Sem 1", "Sem 2", "Sem 3", "Sem 4"],
+    type: ["All", "Books", "Notes", "PYQs"],
+    language: ["All", "English", "Hindi"],
+    price: ["Free", "₹0-50", "₹50-100", "₹100+"],
+  },
+
+  sortOptions: ["Popular", "Highest Rated", "Price Low-High", "Newest"],
+};

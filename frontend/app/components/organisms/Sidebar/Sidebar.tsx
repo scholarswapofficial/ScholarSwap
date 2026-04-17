@@ -16,7 +16,7 @@ const Sidebar = () => {
             key={index}
             label={item.label}
             icon={item.icon}
-            route={item.route} // ✅ added
+            route={item.route} 
           />
         ))}
       </div>

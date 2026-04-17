@@ -9,7 +9,7 @@ type NavItemProps = {
   label: string;
   icon: string;
   active?: boolean;
-  route?: string; // ✅ NEW
+  route?: string; 
 };
 
 const NavItem = ({ label, icon, active, route }: NavItemProps) => {
