@@ -2,8 +2,9 @@ import {
   FaHome,
   FaBook,
   FaStore,
-  FaUsers,
   FaComments,
+  FaCog,
+  FaSignOutAlt,
 } from "react-icons/fa";
 
 type IconProps = {
@@ -12,14 +13,15 @@ type IconProps = {
 
 const iconMap: Record<string, JSX.Element> = {
   home: <FaHome />,
-  book: <FaBook />,
-  store: <FaStore />,
-  users: <FaUsers />,
-  chat: <FaComments />,
+  library: <FaBook />,
+  marketplace: <FaStore />,
+  messages: <FaComments />,
+  settings: <FaCog />,
+  logout: <FaSignOutAlt />,
 };
 
 const Icon = ({ name }: IconProps) => {
-  return <span>{iconMap[name]}</span>;
+  return <span>{iconMap[name] || <FaHome />}</span>; // fallback added
 };
 
 export default Icon;

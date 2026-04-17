@@ -8,6 +8,7 @@ type NavItemProps = {
   icon: string;
   active?: boolean;
 };
+
 const NavItem = ({ label, icon, active }: NavItemProps) => {
   return (
     <div
@@ -16,7 +17,7 @@ const NavItem = ({ label, icon, active }: NavItemProps) => {
       }`}
     >
       <Icon name={icon} />
-      <Text>{label}</Text>
+      <Text className={styles["nav-text"]}>{label}</Text>
     </div>
   );
 };

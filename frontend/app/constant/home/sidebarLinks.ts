@@ -1,7 +1,26 @@
 export const sidebarLinks = [
-  { label: "Feed", icon: "home" },
-  { label: "Library", icon: "book" },
-  { label: "Marketplace", icon: "store" },
-  { label: "Friends", icon: "users" },
-  { label: "Chat", icon: "chat" },
+  {
+    label: "Feed",
+    icon: "home",
+  },
+  {
+    label: "Library",
+    icon: "library",
+  },
+  {
+    label: "Messages",
+    icon: "messages",
+  },
+  {
+    label: "Marketplace",
+    icon: "marketplace",
+  },
+  {
+    label: "Settings",
+    icon: "settings",
+  },
+  {
+    label: "Logout",
+    icon: "logout",
+  },
 ];
