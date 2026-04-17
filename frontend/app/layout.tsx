@@ -5,6 +5,7 @@ import "@/styles/sections/home/layout.module.scss";
 import "@/styles/sections/home/sidebar.module.scss";  
 import "@/styles/sections/home/feed.module.scss";  
 import "@/styles/sections/home/rightpanel.module.scss";  
+import { AuthProvider } from "./context/AuthContext";
 
 
 export default function RootLayout({
@@ -14,7 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }
