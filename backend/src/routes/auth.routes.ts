@@ -1,8 +1,5 @@
 import express from "express";
-
-import {signup,verifyEmail,login} from "../controllers/auth.controller";
-
-
+import { signup, verifyEmail, login } from "../modules/auth/auth.controller.ts";
 const router = express.Router();
 
 
@@ -23,7 +20,7 @@ router.get("/verify-email/:token", verifyEmail);
 
 
 // =============================
-// 🌐 GOOGLE AUTH
+//  GOOGLE AUTH
 // =============================
 
 // ✅ Google login/register
