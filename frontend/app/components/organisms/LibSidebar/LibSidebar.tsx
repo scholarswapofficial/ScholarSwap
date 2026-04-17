@@ -27,19 +27,17 @@ const LibSidebar = () => {
         </div>
       </div>
 
-      {/* Navigation */}
-      <nav className="lib-sidebar__nav">
-       <NavItem icon="home" label="Feed" />
-       <NavItem icon="library" label="Library" />
-       <NavItem icon="messages" label="Messages" />
-       <NavItem icon="marketplace" label="Marketplace" active />
-      </nav>
+     <nav className="lib-sidebar__nav">
+  <NavItem icon="home" label="Feed" route="/home" />
+  <NavItem icon="library" label="Library" route="/library" />
+  <NavItem icon="messages" label="Messages" route="/messages" />
+  <NavItem icon="marketplace" label="Marketplace" route="/library" active />
+</nav>
 
-      {/* Bottom */}
-      <div className="lib-sidebar__bottom">
-        <NavItem icon="settings" label="Settings" />
-        <NavItem icon="logout" label="Logout" />
-      </div>
+<div className="lib-sidebar__bottom">
+  <NavItem icon="settings" label="Settings" route="/settings" />
+  <NavItem icon="logout" label="Logout" route="/auth" />
+</div>
     </aside>
   );
 };

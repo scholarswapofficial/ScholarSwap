@@ -12,7 +12,12 @@ const Sidebar = () => {
 
       <div className={styles["sidebar__menu"]}>
         {sidebarLinks.map((item, index) => (
-          <NavItem key={index} label={item.label} icon={item.icon} />
+          <NavItem
+            key={index}
+            label={item.label}
+            icon={item.icon}
+            route={item.route} // ✅ added
+          />
         ))}
       </div>
 
