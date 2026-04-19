@@ -9,8 +9,9 @@ export interface IUser extends Document {
   isVerified?: boolean;
   verificationToken?: string;
   verificationTokenExpiry?: Date;
-  googleId?: string; // For Google users
-  avatar?: string; // For Google users
+  googleId?: string;
+  avatar?: string; 
+  provider: "google" | "local";
 }
 
 const userSchema = new mongoose.Schema<IUser>({
@@ -24,6 +25,7 @@ const userSchema = new mongoose.Schema<IUser>({
   verificationTokenExpiry: Date,
   googleId: String,
   avatar: String,
+  provider: { type: String, enum: ['google', 'local'], default: 'local' },
 });
 
 export const User = mongoose.model<IUser>('User', userSchema);

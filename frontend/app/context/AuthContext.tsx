@@ -98,7 +98,7 @@ const verifyEmail = async (token:string) => {
                headers: {
                "Content-Type": "application/json",
                },
-          });
+          });  
 
           if (!res.ok) throw new Error("Email verification failed");
           const data = await res.json();

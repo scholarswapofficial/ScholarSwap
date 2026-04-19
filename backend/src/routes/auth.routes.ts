@@ -1,5 +1,6 @@
 import express from "express";
-import { signup, verifyEmail, login } from "../modules/auth/auth.controller.ts";
+import { signup, verifyEmail, login } from "../modules/auth/auth.controller";
+import { googleLogin } from "../modules/auth/google.controller";
 const router = express.Router();
 
 
@@ -24,18 +25,6 @@ router.get("/verify-email/:token", verifyEmail);
 // =============================
 
 // ✅ Google login/register
-// router.post("/google", googleAuth);
-
-
-// =============================
-// 🔒 PROTECTED ROUTE (Example)
-// =============================
-
-// router.get("/profile", protectRoute, (req, res) => {
-//   res.json({
-//     message: "User profile accessed successfully",
-//     user: req.user,
-//   });
-// });
+router.post("/google-login", googleLogin);
 
 export default router;

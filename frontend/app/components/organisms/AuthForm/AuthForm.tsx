@@ -7,6 +7,7 @@ import PasswordField from "@/components/molecules/PasswordField/PasswordField";
 import { FcGoogle } from "react-icons/fc";
 
 import styles from "@/styles/sections/auth/auth.module.scss";
+import GoogleAuthButton from "@/components/google/GoogleAuthButton";
 
 const AuthForm = () => {
   const [mode, setMode] = useState<"login" | "register">("login");
@@ -63,10 +64,10 @@ const AuthForm = () => {
         </div>
 
         {/* Google Login */}
-        <button className={styles["google-btn"]}>
-          <FcGoogle size={20} />
-          Continue with Google
-        </button>
+          
+          
+          <GoogleAuthButton />
+        
       </div>
     </div>
   );
