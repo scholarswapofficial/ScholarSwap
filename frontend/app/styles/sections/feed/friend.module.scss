@@ -1,0 +1,135 @@
+.friend-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.friend-content {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ================= SIDEBAR ================= */
+.friend-sidebar {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+}
+
+.sidebar-item:hover {
+  background: #f3f4f6;
+}
+
+.friend-ad {
+  padding: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.friend-ad button {
+  margin-top: 0.5rem;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+}
+
+/* ================= REQUESTS ================= */
+.friend-requests {
+  flex: 1;
+}
+
+.friend-requests__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+/* ================= CARD ================= */
+.friend-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.friend-card__info {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.friend-card__info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.friend-card__info h4 {
+  font-size: 0.95rem;
+}
+
+.friend-card__info p {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.friend-card__info span {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* ACTIONS */
+.friend-card__actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.accept {
+  flex: 1;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 0.4rem;
+  border-radius: 8px;
+}
+
+.decline {
+  flex: 1;
+  background: #f3f4f6;
+  border: none;
+  padding: 0.4rem;
+  border-radius: 8px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .friend-content {
+    flex-direction: column;
+  }
+
+  .friend-sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .friend-ad {
+    display: none;
+  }
+}

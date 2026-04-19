@@ -1,14 +1,25 @@
-import styles from "@/styles/sections/home/rightpanel.module.scss";
+import styles from "@/styles/sections/feed/friend.module.scss";
 
-const FriendRequestItem = ({ name }: { name: string }) => {
+const FriendRequestItem = ({ data }) => {
   return (
-    <div className={styles["friend-item"]}>
-  <span>{name}</span>
-  <div>
-    <button>Accept</button>
-    <button>Ignore</button>
-  </div>
-</div>
+    <div className={styles["friend-card"]}>
+      
+      <div className={styles["friend-card__info"]}>
+        <img src={data.image} alt={data.name} />
+        
+        <div>
+          <h4>{data.name}</h4>
+          <p>{data.role}</p>
+          <span>{data.mutual}</span>
+        </div>
+      </div>
+
+      <div className={styles["friend-card__actions"]}>
+        <button className={styles["accept"]}>Accept</button>
+        <button className={styles["decline"]}>Decline</button>
+      </div>
+
+    </div>
   );
 };
 
