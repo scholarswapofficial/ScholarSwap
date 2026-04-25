@@ -1,5 +1,5 @@
 import jwt, { Secret, SignOptions } from 'jsonwebtoken';
-import { env } from '../config/env.js';
+import { env } from '../config/env';
 
 export const generateToken = (payload: object) => {
   return jwt.sign(

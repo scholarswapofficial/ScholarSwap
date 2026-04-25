@@ -98,7 +98,7 @@ export const loginService = async (email: string, password: string) => {
   }
 
   const token = jwt.sign(
-    { id: user._id },
+    { id: user._id, email: user.email, name: user.name, role: user.role },
     process.env.JWT_SECRET!,
     { expiresIn: "7d" }
   );

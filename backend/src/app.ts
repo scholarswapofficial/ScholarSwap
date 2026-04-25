@@ -3,6 +3,7 @@ import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 
 import authRoutes from "./routes/auth.routes";
+import profileRoutes from "./routes/profile.route";
 import { swaggerSpec } from "./config/swagger";
 
 const app = express();
@@ -21,6 +22,8 @@ app.get("/welcome", (req, res) => {
 // 🔐 AUTH ROUTES
 // =============================
 app.use("/api/auth", authRoutes);
+app.use("/api/profile", profileRoutes);
+
 
 // =============================
 // ❌ GLOBAL ERROR HANDLER (basic)
