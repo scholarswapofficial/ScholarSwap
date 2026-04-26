@@ -1,9 +1,10 @@
 type TextProps = {
   children: React.ReactNode;
+  className?: string;
 };
 
-const Text = ({ children }: TextProps) => {
-  return <span className="text">{children}</span>;
+const Text = ({ children, className = "" }: TextProps) => {
+  return <span className={`text ${className}`}>{children}</span>;
 };
 
 export default Text;

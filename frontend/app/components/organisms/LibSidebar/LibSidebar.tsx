@@ -1,6 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { usePathname } from "next/navigation";
+
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 import "./LibSidebar.scss";
 import Logo from "@/components/atoms/Logo/Logo";
@@ -9,71 +12,84 @@ import NavItem from "@/components/molecules/NavItem/NavItem";
 
 const LibSidebar = () => {
   const pathname = usePathname();
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <aside className="lib-sidebar">
-      {/* Top Logo */}
-      <div className="lib-sidebar__top">
-        <Logo text="ScholarSwap" />
+    <aside className={`lib-sidebar ${collapsed ? "collapsed" : ""}`}>
+      
+      {/* 🔥 BRAND / TOP */}
+      <div className="lib-sidebar__brand">
+        {!collapsed && <Logo text="ScholarSwap" />}
+
+        <button
+          className="lib-sidebar__toggle"
+          onClick={() => setCollapsed(!collapsed)}
+        >
+          {collapsed ? <FiChevronRight /> : <FiChevronLeft />}
+        </button>
       </div>
 
-      {/* User Profile */}
+      {/* 👤 PROFILE */}
       <div className="lib-sidebar__profile">
         <img
           src="/images/library/default-avatar.png"
           alt="user"
           className="lib-sidebar__avatar"
         />
-        <div>
-          <Text variant="h4">John Doe</Text>
-          <Text variant="p">Student</Text>
-        </div>
+
+        {!collapsed && (
+          <div>
+            <Text variant="h4">John Doe</Text>
+            <Text variant="p">Student</Text>
+          </div>
+        )}
       </div>
 
-      {/* Navigation */}
+      {/* 📌 NAV */}
       <nav className="lib-sidebar__nav">
         <NavItem
           icon="home"
           label="Feed"
           route="/home"
-          active={pathname === "/home"}
+          collapsed={collapsed}
         />
 
         <NavItem
           icon="library"
           label="Library"
           route="/library"
-          active={pathname === "/library"}
+          collapsed={collapsed}
         />
 
         <NavItem
           icon="messages"
           label="Messages"
           route="/messages"
-          active={pathname === "/messages"}
+          collapsed={collapsed}
         />
 
         <NavItem
           icon="marketplace"
           label="Marketplace"
           route="/marketplace"
-          active={pathname === "/marketplace"}
+          collapsed={collapsed}
         />
       </nav>
 
-      {/* Bottom */}
+      {/* 🔻 BOTTOM */}
       <div className="lib-sidebar__bottom">
         <NavItem
           icon="settings"
           label="Settings"
           route="/settings"
-          active={pathname === "/settings"}
+          collapsed={collapsed}
         />
 
         <NavItem
           icon="logout"
           label="Logout"
           route="/auth"
+          collapsed={collapsed}
         />
       </div>
     </aside>

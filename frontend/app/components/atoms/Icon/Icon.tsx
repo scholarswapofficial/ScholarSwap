@@ -9,6 +9,7 @@ import {
 
 type IconProps = {
   name: string;
+  className?: string;
 };
 
 const iconMap: Record<string, JSX.Element> = {
@@ -20,8 +21,12 @@ const iconMap: Record<string, JSX.Element> = {
   logout: <FaSignOutAlt />,
 };
 
-const Icon = ({ name }: IconProps) => {
-  return <span>{iconMap[name] || <FaHome />}</span>; // fallback added
+const Icon = ({ name, className = "" }: IconProps) => {
+  return (
+    <span className={className}>
+      {iconMap[name] || <FaHome />}
+    </span>
+  );
 };
 
 export default Icon;

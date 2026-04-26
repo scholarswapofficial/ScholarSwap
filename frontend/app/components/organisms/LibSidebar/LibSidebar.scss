@@ -1,106 +1,212 @@
+/* =========================
+   SIDEBAR BASE (DARK)
+========================= */
+
 .lib-sidebar {
   width: 260px;
   height: 100vh;
-  background: #1e2a3a;
-  color: #ffffff;
+
+  background: #111827;
+  color: #e5e7eb;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
+  padding: 16px;
 
-  /* 🔷 Top (Logo) */
-  &__top {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 30px;
-
-    img {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-    }
-  }
-
-  /* 🔷 Profile Section */
-  &__profile {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 30px;
-
-    div {
-      display: flex;
-      flex-direction: column;
-    }
-
-    h4 {
-      font-size: 15px;
-      font-weight: 600;
-      margin: 0;
-    }
-
-    p {
-      font-size: 12px;
-      color: #a0aec0; // muted text
-      margin: 0;
-    }
-  }
-
-  &__avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-
-  /* 🔷 Navigation */
-  &__nav {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    flex: 1;
-  }
-
-  /* 🔷 Bottom (Settings + Logout) */
-  &__bottom {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
+  transition: width 0.3s ease;
 }
 
-/* 🔷 NavItem Styling Override (important) */
-.nav-item {
+/* COLLAPSED */
+.lib-sidebar.collapsed {
+  width: 80px;
+}
+
+/* =========================
+   BRAND HEADER
+========================= */
+
+.lib-sidebar__brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: linear-gradient(135deg, #1f2937, #020617);
+  border-radius: 14px;
+
+  padding: 12px;
+  margin-bottom: 20px;
+
+  position: relative;
+}
+
+/* TOGGLE */
+.lib-sidebar__toggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.lib-sidebar__profile {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  color: #cbd5e1;
-  cursor: pointer;
-  transition: all 0.2s ease;
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.08);
-  }
-
-  &--active {
-    background: #cbd5e1;
-    color: #1e293b;
-    font-weight: 500;
-  }
-
-  svg {
-    width: 18px;
-    height: 18px;
-  }
+  margin-bottom: 20px;
 }
 
-/* 🔷 Responsive (basic for now) */
+/* HIDE PROFILE TEXT WHEN COLLAPSED */
+.lib-sidebar.collapsed .lib-sidebar__profile div {
+  display: none;
+}
+
+.lib-sidebar__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* =========================
+   NAV
+========================= */
+
+.lib-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+/* =========================
+   NAV ITEM (MATCH MAIN SIDEBAR)
+========================= */
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+}
+
+/* INNER FIXED ALIGNMENT */
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 160px; /* SAME AS MAIN SIDEBAR */
+}
+
+/* ICON */
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  color: #9ca3af;
+}
+
+/* TEXT */
+.nav-text {
+  transition: all 0.2s ease;
+}
+
+/* HIDE TEXT */
+.nav-text--hidden {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* COLLAPSED */
+.nav-item--collapsed .nav-inner {
+  justify-content: center;
+  width: auto;
+}
+
+/* HOVER */
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(3px);
+}
+
+/* ACTIVE */
+.nav-item.active {
+  background: rgba(255, 106, 0, 0.15);
+  color: #ff6a00;
+
+  border-left: 4px solid #ff6a00;
+  padding-left: 8px;
+}
+
+/* =========================
+   TOOLTIP
+========================= */
+
+.nav-item {
+  position: relative;
+}
+
+.nav-tooltip {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+
+  margin-left: 10px;
+  padding: 6px 10px;
+
+  background: #020617;
+  color: #e5e7eb;
+  font-size: 12px;
+  border-radius: 6px;
+
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.nav-item:hover .nav-tooltip {
+  opacity: 1;
+}
+
+/* =========================
+   BOTTOM
+========================= */
+
+.lib-sidebar__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 10px;
+  border-radius: 12px;
+
+  background: #1f2937;
+  border: 1px solid #374151;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media (max-width: 768px) {
   .lib-sidebar {
     width: 200px;
-    padding: 15px;
+  }
+
+  .lib-sidebar.collapsed {
+    width: 70px;
   }
 }
