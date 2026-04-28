@@ -1,0 +1,17 @@
+/* =========================
+   PREFERENCES CUSTOM STYLES
+========================= */
+
+.pref-select {
+  padding: 0.55rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  background: white;
+  width: fit-content;
+
+  &:focus {
+    outline: none;
+    border-color: #2563eb;
+  }
+}

@@ -1,0 +1,44 @@
+/* =========================
+   PAGE WRAPPER
+========================= */
+
+.courses-page {
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.courses-layout {
+  display: flex;
+  gap: 2rem;
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* =========================
+   RIGHT CONTENT
+========================= */
+
+.courses-content {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .courses-layout {
+    flex-direction: column;
+  }
+}

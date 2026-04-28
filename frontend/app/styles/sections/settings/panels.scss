@@ -1,0 +1,249 @@
+/* =========================
+   SETTINGS PANEL (RIGHT SIDE)
+========================= */
+
+.settings__panel {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 1.6rem;
+  width: 100%;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* =========================
+   PANEL HEADER
+========================= */
+
+.panel__header {
+  margin-bottom: 1.8rem;
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-top: 4px;
+  }
+}
+
+/* =========================
+   PANEL CONTENT
+========================= */
+
+.panel__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* =========================
+   SETTING ROW
+========================= */
+
+.setting-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.8rem 0.4rem;
+  border-bottom: 1px solid #f1f5f9;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    h4 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #111827;
+    }
+
+    p {
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+  }
+}
+
+/* =========================
+   TOGGLE SWITCH
+========================= */
+
+.toggle {
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background: #d1d5db;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  display: flex;
+  align-items: center;
+
+  span {
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    left: 2px;
+    transition: all 0.25s ease;
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  &.active {
+    background: #2563eb;
+
+    span {
+      left: 22px;
+    }
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+/* =========================
+   RESPONSIVE (IMPORTANT)
+========================= */
+
+@media (max-width: 768px) {
+  .settings__panel {
+    padding: 1.2rem;
+  }
+
+  .setting-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .toggle {
+    align-self: flex-end;
+  }
+}
+
+
+/* =========================
+   FORM STYLING
+========================= */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  input {
+    padding: 0.6rem 0.7rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    font-size: 0.9rem;
+
+    &:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+  }
+}
+
+.form-row {
+  display: flex;
+  gap: 0.6rem;
+
+  input {
+    flex: 1;
+  }
+
+  button {
+    padding: 0.5rem 0.9rem;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background: #1d4ed8;
+    }
+  }
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.primary-btn {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background: #1d4ed8;
+  }
+}
+
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 1.5rem 0;
+}
+
+/* =========================
+   DANGER ZONE
+========================= */
+
+.danger-zone {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #b91c1c;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: #6b7280;
+  }
+
+  .danger-btn {
+    width: fit-content;
+    padding: 0.5rem 0.9rem;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background: #b91c1c;
+    }
+  }
+}

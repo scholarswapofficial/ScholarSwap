@@ -1,0 +1,87 @@
+/* =========================
+   COURSE GRID
+========================= */
+
+.course__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+/* =========================
+   COURSE CARD
+========================= */
+
+.course__card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Image */
+.course__card-image {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Content */
+.course__card-content {
+  padding: 0.8rem;
+
+  h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111827;
+  }
+
+  .instructor {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-top: 2px;
+  }
+
+  .meta {
+    display: flex;
+    gap: 0.6rem;
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 6px;
+  }
+
+  .footer {
+    margin-top: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .price {
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .enroll-btn {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.75rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+
+      &:hover {
+        background: #1d4ed8;
+      }
+    }
+  }
+}
