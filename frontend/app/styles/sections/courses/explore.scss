@@ -1,0 +1,112 @@
+.courses-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.courses-header p {
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.courses-filters {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  background: #f3f4f6;
+  padding: 14px;
+  border-radius: 10px;
+}
+
+.search-input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  width: 220px;
+}
+
+.result-count {
+  margin: 16px 0;
+  color: #6b7280;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.course-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  transition: 0.2s;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+}
+
+.course-image {
+  position: relative;
+  height: 140px;
+}
+
+.course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 999px;
+  color: white;
+}
+
+.badge.bestseller {
+  background: #4f46e5;
+}
+
+.badge.popular {
+  background: #16a34a;
+}
+
+.badge.new {
+  background: #9333ea;
+}
+
+.course-body {
+  padding: 12px;
+}
+
+.course-body h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.author {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.rating {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.course-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+}
+
+.price {
+  font-weight: 600;
+}

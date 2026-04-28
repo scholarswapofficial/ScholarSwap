@@ -18,25 +18,25 @@ export const COURSE_SIDEBAR = [
     id: "dashboard",
     label: "Dashboard",
     icon: FiGrid,
-    href: "/courses/dashboard",
+    href: "/course",
   },
   {
     id: "explore",
     label: "Explore",
     icon: FiCompass,
-    href: "/courses",
+    href: "/course/explore",
   },
   {
     id: "my-courses",
     label: "My Courses",
     icon: FiBookOpen,
-    href: "/courses/my-courses",
+    href: "/course/my-courses",
   },
   {
     id: "certificates",
     label: "Certificates",
     icon: FiAward,
-    href: "/courses/certificates",
+    href: "/course/certificates",
   },
 ];
 

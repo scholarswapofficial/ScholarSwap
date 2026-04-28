@@ -1,0 +1,86 @@
+.cert-header h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.cert-header p {
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* STATS */
+.cert-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  background: #f3f4f6;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.stat-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.stat-card.highlight {
+  background: #e0f2fe;
+}
+
+/* GRID */
+.cert-grid {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.cert-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+}
+
+.cert-image {
+  height: 160px;
+}
+
+.cert-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cert-body {
+  padding: 12px;
+}
+
+.cert-body h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.cert-body p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.download-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
