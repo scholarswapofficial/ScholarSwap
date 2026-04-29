@@ -1,0 +1,146 @@
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr 280px;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 720px;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 14px;
+    color: #6b7280;
+  }
+}
+
+.add-btn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* FILTERS */
+.filters {
+  display: flex;
+  gap: 10px;
+  background: white;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+
+  input, select {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+  }
+
+  input {
+    flex: 1;
+  }
+}
+
+/* CATEGORY */
+.categories {
+  display: flex;
+  gap: 10px;
+
+  span {
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #f3f4f6;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  .active {
+    background: #2563eb;
+    color: white;
+  }
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  transition: 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* IMAGE */
+.image img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.content {
+  padding: 10px;
+
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+  }
+}
+
+/* TAGS */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0;
+
+  span {
+    font-size: 11px;
+    background: #f3f4f6;
+    padding: 3px 6px;
+    border-radius: 6px;
+  }
+}
+
+/* META */
+.meta {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* AUTHOR */
+.author {
+  font-size: 12px;
+  color: #374151;
+  margin-top: 4px;
+}

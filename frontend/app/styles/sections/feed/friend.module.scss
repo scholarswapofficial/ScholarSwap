@@ -1,3 +1,4 @@
+/* ================= LAYOUT ================= */
 .friend-layout {
   display: flex;
   flex-direction: column;
@@ -6,7 +7,7 @@
 
 .friend-content {
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 /* ================= SIDEBAR ================= */
@@ -17,36 +18,162 @@
   gap: 1rem;
 }
 
+/* MENU CONTAINER */
+.friend-sidebar__menu {
+  background: #ffffff;
+  border: 1px solid #e6eaf0;
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.menu-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  margin-bottom: 8px;
+  padding-left: 6px;
+}
+
+/* ITEM WRAPPER (for chevron alignment) */
+.menu-item-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chevron {
+  color: #aaa;
+  font-size: 16px;
+  margin-right: 6px;
+}
+
+/* ================= SIDEBAR ITEM ================= */
 .sidebar-item {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  padding: 0.7rem;
-  border-radius: 10px;
+  gap: 14px;
+  padding: 10px 12px;
+  border-radius: 14px;
   cursor: pointer;
-  transition: 0.2s;
-  background: #fff;
-  border: 1px solid #e5e7eb;
+  transition: all 0.25s ease;
+  flex: 1;
+
+  &:hover {
+    background: #f5f7fb;
+    transform: translateX(3px);
+  }
 }
 
-.sidebar-item:hover {
-  background: #f3f4f6;
-}
-
-.friend-ad {
-  padding: 1rem;
-  background: #fff;
+/* ICON BOX */
+.icon-box {
+  width: 42px;
+  height: 42px;
   border-radius: 12px;
-  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+
+  background: #eef2ff;
+  color: #3b82f6;
+  transition: 0.25s;
 }
 
-.friend-ad button {
-  margin-top: 0.5rem;
-  background: #2563eb;
+/* TEXT */
+.text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+
+  .label {
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .sub {
+    font-size: 12px;
+    color: #888;
+  }
+}
+
+/* ACTIVE */
+.active {
+  background: linear-gradient(135deg, #e0e7ff, #f4f7ff);
+
+  .icon-box {
+    background: #3b82f6;
+    color: #fff;
+  }
+}
+
+.link-wrapper {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* ================= SPONSORED ================= */
+.friend-ad {
+  background: #ffffff;
+  border: 1px solid #e6eaf0;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+
+  h4 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #555;
+  }
+}
+
+.friend-ad__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ICON */
+.ad-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #eef2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+/* TEXT */
+.ad-text {
+  p {
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  span {
+    font-size: 13px;
+    color: #777;
+  }
+}
+
+/* BUTTON */
+.ad-btn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: #fff;
   border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.25s;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(37, 99, 235, 0.3);
+  }
 }
 
 /* ================= REQUESTS ================= */
@@ -62,10 +189,17 @@
 
 /* ================= CARD ================= */
 .friend-card {
-  background: #fff;
+  background: #ffffff;
   padding: 1rem;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  border: 1px solid #e6eaf0;
+  transition: 0.25s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+  }
 }
 
 .friend-card__info {
@@ -105,16 +239,23 @@
   background: #2563eb;
   color: #fff;
   border: none;
-  padding: 0.4rem;
-  border-radius: 8px;
+  padding: 0.45rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background: #1d4ed8;
+  }
 }
 
 .decline {
   flex: 1;
   background: #f3f4f6;
   border: none;
-  padding: 0.4rem;
-  border-radius: 8px;
+  padding: 0.45rem;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -125,8 +266,6 @@
 
   .friend-sidebar {
     width: 100%;
-    flex-direction: row;
-    overflow-x: auto;
   }
 
   .friend-ad {

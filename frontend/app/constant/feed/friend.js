@@ -1,8 +1,20 @@
 export const FRIEND_SIDEBAR = [
-  { id: 1, label: "Friends", icon: "FaUsers" },
-  { id: 2, label: "Events", icon: "FaCalendarAlt" },
-  { id: 3, label: "Groups", icon: "FaUserFriends" },
-  { id: 4, label: "Certifications", sub: "Best Seller", icon: "FaCertificate" },
+  {
+    id: 1,    label: "Friends",
+    icon: "FaUsers",    path: "/friend",
+  },
+  {
+    id: 2,    label: "Events",
+    icon: "FaCalendarAlt",    path: "/friend/events",
+  },
+  {
+    id: 3,    label: "Projects",
+    icon: "FaCode",    path: "/friend/projects",
+  },
+  {
+    id: 4,    label: "Certifications",
+    sub: "Best Seller",    icon: "FaCertificate",    path: "/course/certificates",
+  },
 ];
 
 export const FRIEND_REQUESTS = [

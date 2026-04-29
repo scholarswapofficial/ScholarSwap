@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import "@/styles/sections/home/notification.scss";
 import { NOTIFICATIONS, NOTIFICATION_TABS } from "@/constant/notification";
+import { FiMoreVertical } from "react-icons/fi";
+import { FaHeart, FaCommentDots, FaUserPlus, FaAt, FaBook } from "react-icons/fa";
 
 const NotificationSection = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -11,9 +13,12 @@ const NotificationSection = () => {
     <div className="notification">
       {/* Header */}
       <div className="notification__header">
-        <div>
-          <h2>Notifications</h2>
-          <p>Stay updated with what's happening in your network.</p>
+        <div className="left">
+          <div className="icon">🔔</div>
+          <div>
+            <h2>Notifications</h2>
+            <p>Stay updated with what's happening in your network.</p>
+          </div>
         </div>
 
         <button className="filter-btn">All Notifications ▾</button>
@@ -35,16 +40,32 @@ const NotificationSection = () => {
 
       {/* List */}
       <div className="notification__list">
-        {NOTIFICATIONS.map((item) => (
+        {NOTIFICATIONS.map((item, index) => (
           <div key={item.id} className="notification__item">
-            <img src={item.avatar} alt="user" />
+            
+            {/* Timeline line */}
+            <div className="timeline">
+              <span className="circle" />
+              {index !== NOTIFICATIONS.length - 1 && <span className="line" />}
+            </div>
 
+            {/* Avatar */}
+            <div className="avatar-wrapper">
+              <img src={item.avatar} alt="user" />
+
+              {/* Type Icon */}
+              <div className={`type-icon ${item.type}`}>
+                {getIcon(item.type)}
+              </div>
+            </div>
+
+            {/* Content */}
             <div className="content">
               <p>
                 <strong>{item.name}</strong>{" "}
                 {renderText(item.type, item.message)}
               </p>
-              <span>{item.time}</span>
+              <span className="time">{item.time}</span>
             </div>
 
             {/* Actions */}
@@ -54,6 +75,11 @@ const NotificationSection = () => {
                 <button className="decline">Decline</button>
               </div>
             )}
+
+            {/* Menu */}
+            <button className="menu">
+              <FiMoreVertical />
+            </button>
 
             {/* Unread Dot */}
             {item.unread && <div className="dot" />}
@@ -66,7 +92,25 @@ const NotificationSection = () => {
 
 export default NotificationSection;
 
-// helper
+// Icons
+function getIcon(type: string) {
+  switch (type) {
+    case "like":
+      return <FaHeart />;
+    case "comment":
+      return <FaCommentDots />;
+    case "mention":
+      return <FaAt />;
+    case "note":
+      return <FaBook />;
+    case "friend_request":
+      return <FaUserPlus />;
+    default:
+      return null;
+  }
+}
+
+// Text
 function renderText(type: string, message: string) {
   switch (type) {
     case "like":
