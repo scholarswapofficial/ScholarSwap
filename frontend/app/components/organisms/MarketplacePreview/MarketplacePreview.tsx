@@ -5,10 +5,16 @@ import styles from "@/styles/sections/home/rightpanel.module.scss";
 const MarketplacePreview = () => {
   return (
     <div className={styles.card}>
-      <h3>Marketplace</h3>
+      
+      <div className={styles.card__header}>
+        <div className={styles.card__title}>🛒 Marketplace</div>
+        <span className={styles.card__link}>View all</span>
+      </div>
+
       {marketplaceData.map((n) => (
         <NoteCard key={n.id} {...n} />
       ))}
+
     </div>
   );
 };

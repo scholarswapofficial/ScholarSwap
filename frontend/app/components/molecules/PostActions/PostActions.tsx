@@ -1,23 +1,62 @@
+import { useState } from "react";
 import { FaHeart, FaComment, FaBookmark } from "react-icons/fa";
+
+import { feedActionText } from "@/constant/feed/uiText";
 import styles from "@/styles/sections/home/feed.module.scss";
 
-const PostActions = () => {
+type PostActionsProps = {
+  stats?: {
+    likes: number;
+    comments: number;
+    views: number;
+  };
+};
+
+const PostActions = ({ stats }: PostActionsProps) => {
+  const [liked, setLiked] = useState(false);
+  const [saved, setSaved] = useState(false);
+
+  const handleLike = () => {
+    setLiked((prev) => !prev);
+  };
+
+  const handleSave = () => {
+    setSaved((prev) => !prev);
+  };
+
   return (
     <div className={styles["post-actions"]}>
-      <div className={styles["post-actions__item"]}>
-        <FaHeart />
-        <span>Like</span>
+      
+      {/* LIKE */}
+      <div
+        className={styles["post-actions__item"]}
+        onClick={handleLike}
+      >
+        <FaHeart color={liked ? "#ef4444" : ""} />
+        <span>
+          {feedActionText.like}
+          {stats?.likes !== undefined && ` (${stats.likes + (liked ? 1 : 0)})`}
+        </span>
       </div>
 
+      {/* COMMENT */}
       <div className={styles["post-actions__item"]}>
         <FaComment />
-        <span>Comment</span>
+        <span>
+          {feedActionText.comment}
+          {stats?.comments !== undefined && ` (${stats.comments})`}
+        </span>
       </div>
 
-      <div className={styles["post-actions__item"]}>
-        <FaBookmark />
-        <span>Save</span>
+      {/* SAVE */}
+      <div
+        className={styles["post-actions__item"]}
+        onClick={handleSave}
+      >
+        <FaBookmark color={saved ? "#2563eb" : ""} />
+        <span>{feedActionText.save}</span>
       </div>
+
     </div>
   );
 };

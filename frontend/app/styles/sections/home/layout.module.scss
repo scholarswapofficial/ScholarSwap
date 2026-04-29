@@ -1,17 +1,20 @@
 /* =========================
-   LAYOUT
+   LAYOUT (UPDATED)
 ========================= */
 
 .home-layout {
   display: grid;
-  grid-template-columns: 240px 1fr 300px;
+  grid-template-columns: 240px minmax(600px, 700px) 320px;
+  justify-content: center; /* centers the whole layout */
   height: 100vh;
+  gap: 1rem; /* spacing between columns */
+  padding: 0 1rem;
   transition: all 0.3s ease;
 }
 
 /* COLLAPSED STATE */
 .home-layout.collapsed {
-  grid-template-columns: 80px 1fr 300px;
+  grid-template-columns: 80px minmax(600px, 700px) 320px;
 }
 
 /* SIDEBAR */
@@ -20,12 +23,15 @@
   transition: width 0.3s ease;
 }
 
-/* FEED */
+/* FEED (CENTER) */
 .home-layout__feed {
   overflow-y: auto;
+  max-width: 700px;
+  width: 100%;
 }
 
 /* RIGHT PANEL */
 .home-layout__rightpanel {
   border-left: 1px solid #e5e7eb;
+  padding-left: 1rem;
 }

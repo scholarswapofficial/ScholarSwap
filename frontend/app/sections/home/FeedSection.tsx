@@ -2,25 +2,33 @@ import FeedTabs from "@/components/molecules/FeedTabs/FeedTabs";
 import PostCreator from "@/components/organisms/PostCreator/PostCreator";
 import FeedList from "@/components/organisms/FeedList/FeedList";
 
+import { feedLayoutConfig } from "@/constant/feed/layout";
+
 import styles from "@/styles/sections/home/feed.module.scss";
 
 const FeedSection = () => {
+  const {   showTabs,  showCreator,  showFeed,   containerClass,} = feedLayoutConfig;
+
   return (
-    <section className={styles.feed}>
-      {/* Header */}
-      <div className={styles["feed__header"]}>
-        <FeedTabs />
-      </div>
+    <section className={`${styles.feed} ${styles[containerClass]}`}>
+      {showTabs && (
+        <div className={styles.feed__header}>
+          <FeedTabs />
+        </div>
+      )}
 
-      {/* Creator */}
-      <div className={styles["feed__creator"]}>
-        <PostCreator />
-      </div>
+      {showCreator && (
+        <div className={styles.feed__creator}>
+          <PostCreator />
+        </div>
+      )}
 
-      {/* Posts */}
-      <div className={styles["feed__list"]}>
-        <FeedList />
-      </div>
+      {showFeed && (
+        <div className={styles.feed__list}>
+          <FeedList />
+        </div>
+      )}
+
     </section>
   );
 };

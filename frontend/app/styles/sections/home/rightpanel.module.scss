@@ -1,68 +1,168 @@
 .rightpanel {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
-/* ================= CARD ================= */
+/* =========================
+   CARD BASE
+========================= */
 .card {
-  background: #ffffff;
-  padding: 1rem;
-  border-radius: 16px;
+  background: #fff;
   border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
 }
 
-.card h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.8rem;
-}
-
-/* ================= FRIEND ================= */
-.friend-item {
+.card__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
 }
 
-.friend-item span {
-  font-weight: 500;
+.card__title {
+  font-weight: 600;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
 }
 
-/* Buttons */
-.friend-item button {
-  padding: 0.25rem 0.6rem;
-  border-radius: 6px;
-  border: none;
+.card__link {
   font-size: 0.8rem;
+  color: #2563eb;
   cursor: pointer;
 }
 
-.friend-item button:first-child {
-  background: #10b981;
-  color: white;
-}
-
-.friend-item button:last-child {
-  background: #e5e7eb;
-}
-
-/* ================= CHAT ================= */
-.chat-item {
+/* =========================
+   TRENDING
+========================= */
+.trending__item {
   display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.trending__left {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.trending__rank {
+  background: #f3f4f6;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+.trending__tag {
+  font-weight: 500;
+}
+
+.trending__posts {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.trending__up {
+  color: #16a34a;
+}
+
+.trending__down {
+  color: #dc2626;
+}
+
+/* =========================
+   EVENTS
+========================= */
+.event {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.event__date {
+  background: #f3f4f6;
+  padding: 6px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+.event__info {
+  flex: 1;
+  margin-left: 0.6rem;
+}
+
+.event__info p {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.event__info span {
+  font-size: 0.7rem;
+  color: #6b7280;
+}
+
+.event__badge {
+  background: #e0e7ff;
+  color: #4f46e5;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+/* =========================
+   PEOPLE
+========================= */
+.person {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   margin-bottom: 0.7rem;
 }
 
-.chat-item strong {
-  font-size: 0.9rem;
+.person__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
 }
 
-.chat-item span {
-  font-size: 0.8rem;
+.person__info {
+  flex: 1;
+}
+
+.person__info p {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.person__info span {
+  font-size: 0.7rem;
   color: #6b7280;
+}
+
+.person__info small {
+  font-size: 0.65rem;
+  color: #9ca3af;
+}
+
+.connect {
+  border: 1px solid #2563eb;
+  color: #2563eb;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.connect:hover {
+  background: #eff6ff;
 }
 
 /* ================= MARKETPLACE ================= */
@@ -70,27 +170,58 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f9fafb;
-  padding: 0.6rem;
-  border-radius: 10px;
-  margin-bottom: 0.6rem;
+  background: #ffffff;
+  padding: 0.7rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 0.7rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-.note-card p {
+/* Hover effect */
+.note-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  border-color: #dbeafe;
+}
+
+/* LEFT CONTENT */
+.note-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+/* Title */
+.note-card__title {
   font-size: 0.9rem;
   font-weight: 500;
+  color: #111827;
 }
 
-.note-card span {
+/* Subtitle (optional) */
+.note-card__meta {
+  font-size: 0.7rem;
+  color: #6b7280;
+}
+
+/* RIGHT PRICE */
+.note-card__price {
   font-weight: 600;
+  font-size: 0.9rem;
   color: #2563eb;
+  background: #eff6ff;
+  padding: 4px 8px;
+  border-radius: 8px;
 }
 
-/* ================= LIBRARY ================= */
-.library-item {
-  padding: 0.5rem;
-  border-radius: 8px;
-  background: #f3f4f6;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+/* Optional badge */
+.note-card__badge {
+  font-size: 0.65rem;
+  background: #fef3c7;
+  color: #92400e;
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-left: 6px;
 }
