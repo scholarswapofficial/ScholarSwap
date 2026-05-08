@@ -1,0 +1,161 @@
+.admin-user-kpi {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 1.2rem;
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   CARD                                     */
+  /* -------------------------------------------------------------------------- */
+
+  &__card {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #edf2f7;
+
+    padding: 1.2rem;
+
+    min-height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+
+    transition: all 0.25s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    }
+
+    &::before {
+      content: "";
+
+      position: absolute;
+
+      top: -40px;
+      right: -40px;
+
+      width: 120px;
+      height: 120px;
+
+      border-radius: 50%;
+
+      opacity: 0.08;
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                               COLOR THEMES                                 */
+  /* -------------------------------------------------------------------------- */
+
+  &__card--purple::before {
+    background: #6d5dfc;
+  }
+
+  &__card--green::before {
+    background: #22c55e;
+  }
+
+  &__card--orange::before {
+    background: #f59e0b;
+  }
+
+  &__card--red::before {
+    background: #ef4444;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    TOP                                     */
+  /* -------------------------------------------------------------------------- */
+
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    position: relative;
+    z-index: 2;
+  }
+
+  &__icon {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      font-size: 1.4rem;
+      color: white;
+    }
+  }
+
+  &__card--purple &__icon {
+    background: linear-gradient(135deg, #6d5dfc, #8b7cff);
+  }
+
+  &__card--green &__icon {
+    background: linear-gradient(135deg, #10b981, #34d399);
+  }
+
+  &__card--orange &__icon {
+    background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  }
+
+  &__card--red &__icon {
+    background: linear-gradient(135deg, #ef4444, #fb7185);
+  }
+
+  &__growth {
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    padding: 0.35rem 0.7rem;
+
+    border-radius: 999px;
+
+    background: #f8fafc;
+
+    color: #0f172a;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  CONTENT                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__content {
+    position: relative;
+    z-index: 2;
+
+    h3 {
+      font-size: 1.75rem;
+      font-weight: 700;
+
+      color: #0f172a;
+
+      margin-bottom: 0.35rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+      font-weight: 500;
+
+      color: #64748b;
+    }
+  }
+}

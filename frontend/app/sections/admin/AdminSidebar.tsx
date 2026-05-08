@@ -3,20 +3,26 @@
 import React from "react";
 import Link from "next/link";
 
+import { usePathname } from "next/navigation";
+
 import {
   RiDashboardFill,
   RiUser3Line,
   RiBookOpenLine,
   RiShoppingBag3Line,
   RiGraduationCapLine,
-  RiChat3Line,
-  RiSettings4Line,
   RiLineChartLine,
 } from "react-icons/ri";
 
 import "@/styles/sections/admin/adminSidebar.scss";
 
 const AdminSidebar = () => {
+  const pathname = usePathname();
+
+  const isActive = (path: string) => {
+    return pathname === path;
+  };
+
   return (
     <aside className="admin-sidebar">
       {/* ---------------------------------------------------------------- */}
@@ -24,7 +30,9 @@ const AdminSidebar = () => {
       {/* ---------------------------------------------------------------- */}
 
       <div className="admin-sidebar__logo">
-        <div className="admin-sidebar__logo-icon">S</div>
+        <div className="admin-sidebar__logo-icon">
+          S
+        </div>
 
         <div className="admin-sidebar__logo-content">
           <h2>ScholarSwap</h2>
@@ -37,44 +45,94 @@ const AdminSidebar = () => {
       {/* ---------------------------------------------------------------- */}
 
       <nav className="admin-sidebar__nav">
-        <Link href="/admin" className="admin-sidebar__item active">
+        {/* ------------------------ DASHBOARD ------------------------ */}
+
+        <Link
+          href="/admin"
+          className={`admin-sidebar__item ${
+            isActive("/admin")
+              ? "active"
+              : ""
+          }`}
+        >
           <RiDashboardFill />
+
           <span>Dashboard</span>
         </Link>
 
-        <Link href="/admin/users" className="admin-sidebar__item">
+        {/* -------------------------- USERS -------------------------- */}
+
+        <Link
+          href="/admin/users"
+          className={`admin-sidebar__item ${
+            isActive("/admin/users")
+              ? "active"
+              : ""
+          }`}
+        >
           <RiUser3Line />
+
           <span>Users</span>
         </Link>
 
-        <Link href="/admin/library" className="admin-sidebar__item">
+        {/* ------------------------- LIBRARY ------------------------- */}
+
+        <Link
+          href="/admin/library"
+          className={`admin-sidebar__item ${
+            isActive("/admin/library")
+              ? "active"
+              : ""
+          }`}
+        >
           <RiBookOpenLine />
+
           <span>Library</span>
         </Link>
 
-        <Link href="/admin/marketplace" className="admin-sidebar__item">
+        {/* ---------------------- MARKETPLACE ------------------------ */}
+
+        <Link
+          href="/admin/marketplace"
+          className={`admin-sidebar__item ${
+            isActive("/admin/marketplace")
+              ? "active"
+              : ""
+          }`}
+        >
           <RiShoppingBag3Line />
+
           <span>Marketplace</span>
         </Link>
 
-        <Link href="/admin/courses" className="admin-sidebar__item">
+        {/* ------------------------- COURSES ------------------------- */}
+
+        <Link
+          href="/admin/courses"
+          className={`admin-sidebar__item ${
+            isActive("/admin/courses")
+              ? "active"
+              : ""
+          }`}
+        >
           <RiGraduationCapLine />
+
           <span>Courses</span>
         </Link>
 
-        <Link href="/admin/engagement" className="admin-sidebar__item">
-          <RiChat3Line />
-          <span>Engagement</span>
-        </Link>
+        {/* -------------------------- TRENDS ------------------------- */}
 
-        <Link href="/admin/trends" className="admin-sidebar__item">
+        <Link
+          href="/admin/trends"
+          className={`admin-sidebar__item ${
+            isActive("/admin/trends")
+              ? "active"
+              : ""
+          }`}
+        >
           <RiLineChartLine />
-          <span>Trends</span>
-        </Link>
 
-        <Link href="/admin/platform-controls" className="admin-sidebar__item">
-          <RiSettings4Line />
-          <span>Platform Controls</span>
+          <span>Trends</span>
         </Link>
       </nav>
 
@@ -84,7 +142,9 @@ const AdminSidebar = () => {
 
       <div className="admin-sidebar__footer">
         <div className="admin-sidebar__admin">
-          <div className="admin-sidebar__avatar">A</div>
+          <div className="admin-sidebar__avatar">
+            A
+          </div>
 
           <div className="admin-sidebar__admin-content">
             <h4>Admin User</h4>

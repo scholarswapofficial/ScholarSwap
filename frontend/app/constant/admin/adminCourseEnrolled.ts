@@ -1,0 +1,61 @@
+export const ADMIN_COURSE_ENROLLED = [
+  {
+    id: 1,
+    studentName: "Rahul Sharma",
+    username: "@rahul_25",
+    course: "Advanced Data Structures",
+    amount: "₹499",
+    college: "IIT Delhi",
+    branch: "Computer Science",
+    progress: "78%",
+    status: "Active",
+  },
+
+  {
+    id: 2,
+    studentName: "Ananya Singh",
+    username: "@ananya_codes",
+    course: "System Design Bootcamp",
+    amount: "₹799",
+    college: "NIT Trichy",
+    branch: "Information Technology",
+    progress: "54%",
+    status: "Active",
+  },
+
+  {
+    id: 3,
+    studentName: "Aman Verma",
+    username: "@aman_dev",
+    course: "DBMS Complete Guide",
+    amount: "₹399",
+    college: "VIT Vellore",
+    branch: "Computer Science",
+    progress: "100%",
+    status: "Completed",
+  },
+
+  {
+    id: 4,
+    studentName: "Sneha Reddy",
+    username: "@sneha21",
+    course: "Operating Systems",
+    amount: "₹449",
+    college: "BITS Pilani",
+    branch: "Electronics",
+    progress: "32%",
+    status: "Active",
+  },
+
+  {
+    id: 5,
+    studentName: "Dev Patel",
+    username: "@dev_1704",
+    course: "AI Fundamentals",
+    amount: "₹999",
+    college: "IIIT Hyderabad",
+    branch: "Artificial Intelligence",
+    progress: "87%",
+    status: "Completed",
+  },
+];

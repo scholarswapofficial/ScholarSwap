@@ -1,0 +1,201 @@
+.admin-market-header {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5rem;
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   TITLE                                    */
+  /* -------------------------------------------------------------------------- */
+
+  &__title {
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+
+      color: #0f172a;
+
+      margin-bottom: 0.35rem;
+    }
+
+    p {
+      font-size: 0.92rem;
+
+      color: #64748b;
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    KPI                                     */
+  /* -------------------------------------------------------------------------- */
+
+  &__kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 1rem;
+  }
+
+  &__kpi {
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 1.2rem;
+
+    border: 1px solid #edf2f7;
+
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+
+    h4 {
+      font-size: 0.82rem;
+      font-weight: 600;
+
+      color: #64748b;
+
+      margin-bottom: 0.7rem;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+
+      color: #0f172a;
+
+      margin-bottom: 0.35rem;
+    }
+
+    p {
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+  }
+
+  &__kpi--purple p {
+    color: #6d5dfc;
+  }
+
+  &__kpi--green p {
+    color: #22c55e;
+  }
+
+  &__kpi--orange p {
+    color: #f59e0b;
+  }
+
+  &__kpi--blue p {
+    color: #2563eb;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  CONTENT                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1.6fr 0.8fr;
+
+    gap: 1.5rem;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    CARD                                    */
+  /* -------------------------------------------------------------------------- */
+
+  &__graph-card,
+  &__category-card {
+    background: white;
+
+    border-radius: 24px;
+
+    padding: 1rem;
+
+    border: 1px solid #edf2f7;
+
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                CARD HEADER                                 */
+  /* -------------------------------------------------------------------------- */
+
+  &__card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 0.5rem;
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+
+      color: #0f172a;
+    }
+
+    select {
+      height: 42px;
+      padding: 0 1rem;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      background: white;
+      font-size: 0.82rem;
+      color: #475569;
+      outline: none;
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   GRAPH                                    */
+  /* -------------------------------------------------------------------------- */
+
+  &__graph {
+    width: 100%;
+    height: 200px;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   CHART                                    */
+  /* -------------------------------------------------------------------------- */
+
+  &__chart {
+    width: 100%;
+
+    height: 160px;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   LEGEND                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__legend {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.8rem;
+
+    margin-top: 0.5rem;
+
+    div {
+      display: flex;
+      align-items: center;
+
+      gap: 0.7rem;
+    }
+
+    span {
+      width: 12px;
+      height: 12px;
+
+      border-radius: 50%;
+    }
+
+    p {
+      font-size: 0.82rem;
+
+      color: #475569;
+    }
+  }
+}

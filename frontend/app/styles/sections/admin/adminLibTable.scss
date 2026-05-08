@@ -1,0 +1,455 @@
+.admin-lib-table {
+  width: 100%;
+
+  background: #ffffff;
+
+  border-radius: 28px;
+
+  padding: 1.5rem;
+
+  border: 1px solid #edf2f7;
+
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   HEADER                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    margin-bottom: 1.5rem;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+
+      color: #0f172a;
+
+      margin-bottom: 0.35rem;
+    }
+
+    p {
+      font-size: 0.92rem;
+
+      color: #64748b;
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                 ADD BUTTON                                 */
+  /* -------------------------------------------------------------------------- */
+
+  &__add-btn {
+    height: 48px;
+
+    padding: 0 1.3rem;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: linear-gradient(135deg, #6d5dfc, #8b7cff);
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+    svg {
+      font-size: 1.1rem;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    TABS                                    */
+  /* -------------------------------------------------------------------------- */
+
+  &__tabs {
+    display: flex;
+    align-items: center;
+
+    gap: 0.7rem;
+
+    margin-bottom: 1.5rem;
+
+    button {
+      border: none;
+
+      background: transparent;
+
+      padding: 0.8rem 1rem;
+
+      border-radius: 12px;
+
+      font-size: 0.88rem;
+      font-weight: 600;
+
+      color: #64748b;
+
+      cursor: pointer;
+
+      transition: all 0.2s ease;
+
+      &.active {
+        background: #eef2ff;
+
+        color: #6d5dfc;
+      }
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  FILTERS                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    margin-bottom: 1.5rem;
+  }
+
+  &__search {
+    width: 420px;
+    height: 48px;
+
+    border-radius: 14px;
+
+    border: 1px solid #e2e8f0;
+
+    background: #f8fafc;
+
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    padding: 0 1rem;
+
+    svg {
+      font-size: 1rem;
+
+      color: #64748b;
+    }
+
+    input {
+      flex: 1;
+
+      border: none;
+      outline: none;
+
+      background: transparent;
+
+      font-size: 0.88rem;
+
+      color: #0f172a;
+    }
+  }
+
+  &__filter-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 0.8rem;
+
+    button,
+    select {
+      height: 46px;
+
+      padding: 0 1rem;
+
+      border-radius: 12px;
+
+      border: 1px solid #e2e8f0;
+
+      background: white;
+
+      font-size: 0.84rem;
+      font-weight: 500;
+
+      color: #334155;
+
+      cursor: pointer;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    TABLE                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__table-wrapper {
+    overflow-x: auto;
+  }
+
+  &__table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    thead {
+      background: #f8fafc;
+
+      th {
+        padding: 1rem;
+
+        text-align: left;
+
+        font-size: 0.82rem;
+        font-weight: 700;
+
+        color: #475569;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #f1f5f9;
+
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: #fafbff;
+        }
+
+        td {
+          padding: 1rem;
+
+          vertical-align: top;
+        }
+      }
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    BOOK                                    */
+  /* -------------------------------------------------------------------------- */
+
+  &__book {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  &__book-content {
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+
+      color: #0f172a;
+
+      margin-bottom: 0.4rem;
+
+      line-height: 1.4;
+    }
+
+    h4 {
+      font-size: 0.85rem;
+      font-weight: 500;
+
+      color: #475569;
+
+      margin-bottom: 0.35rem;
+    }
+
+    p {
+      font-size: 0.78rem;
+
+      color: #64748b;
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    TAGS                                    */
+  /* -------------------------------------------------------------------------- */
+
+  &__tags {
+    display: flex;
+    align-items: center;
+
+    gap: 0.5rem;
+
+    margin-bottom: 0.75rem;
+
+    span {
+      padding: 0.35rem 0.7rem;
+
+      border-radius: 999px;
+
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .subject {
+      background: #dbeafe;
+
+      color: #2563eb;
+    }
+
+    .type {
+      background: #fef3c7;
+
+      color: #ca8a04;
+    }
+  }
+
+  .subject-pill,
+  .semester-pill {
+    padding: 0.45rem 0.8rem;
+
+    border-radius: 999px;
+
+    font-size: 0.74rem;
+    font-weight: 600;
+  }
+
+  .subject-pill {
+    background: #eef2ff;
+
+    color: #6d5dfc;
+  }
+
+  .semester-pill {
+    background: #dcfce7;
+
+    color: #16a34a;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   RATING                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__rating {
+    display: flex;
+    align-items: center;
+
+    gap: 0.45rem;
+
+    svg {
+      color: #f59e0b;
+    }
+
+    span {
+      font-size: 0.85rem;
+
+      color: #334155;
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  ACTIONS                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__actions {
+    display: flex;
+    align-items: center;
+
+    gap: 0.5rem;
+
+    button {
+      width: 36px;
+      height: 36px;
+
+      border: none;
+
+      border-radius: 10px;
+
+      background: #f8fafc;
+
+      cursor: pointer;
+
+      transition: all 0.2s ease;
+
+      svg {
+        font-size: 1rem;
+
+        color: #475569;
+      }
+
+      &:hover {
+        background: #eef2ff;
+      }
+
+      &.delete {
+        svg {
+          color: #ef4444;
+        }
+      }
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                 PAGINATION                                 */
+  /* -------------------------------------------------------------------------- */
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    margin-top: 1.5rem;
+
+    p {
+      font-size: 0.85rem;
+
+      color: #64748b;
+    }
+  }
+
+  &__pages {
+    display: flex;
+    align-items: center;
+
+    gap: 0.5rem;
+
+    button {
+      width: 38px;
+      height: 38px;
+
+      border-radius: 10px;
+
+      border: 1px solid #e2e8f0;
+
+      background: white;
+
+      font-size: 0.82rem;
+      font-weight: 600;
+
+      cursor: pointer;
+
+      &.active {
+        background: #6d5dfc;
+
+        color: white;
+
+        border-color: #6d5dfc;
+      }
+    }
+  }
+}

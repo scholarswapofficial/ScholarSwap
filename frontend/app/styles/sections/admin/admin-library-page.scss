@@ -1,0 +1,146 @@
+.admin-library-page {
+  width: 100%;
+
+  min-height: 100vh;
+
+  display: flex;
+
+  background: #f5f7fb;
+
+  overflow: hidden;
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  SIDEBAR                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__sidebar {
+    width: 280px;
+    min-width: 280px;
+
+    height: 100vh;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    z-index: 100;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                 MAIN AREA                                  */
+  /* -------------------------------------------------------------------------- */
+
+  &__main {
+    flex: 1;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-x: hidden;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  TOPBAR                                    */
+  /* -------------------------------------------------------------------------- */
+
+  &__topbar {
+    width: 100%;
+
+    min-height: 80px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e9edf5;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 50;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  CONTENT                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__content {
+    flex: 1;
+
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.5rem;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    TABS                                    */
+  /* -------------------------------------------------------------------------- */
+
+  &__tabs {
+    display: flex;
+    align-items: center;
+
+    gap: 0.8rem;
+
+    button {
+      border: none;
+
+      background: white;
+
+      border: 1px solid #e2e8f0;
+
+      padding: 0.8rem 1.2rem;
+
+      border-radius: 14px;
+
+      font-size: 0.88rem;
+      font-weight: 600;
+
+      color: #64748b;
+
+      cursor: pointer;
+
+      transition: all 0.25s ease;
+
+      &:hover {
+        background: #eef2ff;
+
+        color: #6d5dfc;
+      }
+
+      &.active {
+        background: linear-gradient(
+          135deg,
+          #6d5dfc,
+          #8b7cff
+        );
+
+        border-color: transparent;
+
+        color: white;
+
+        box-shadow: 0 10px 20px
+          rgba(109, 93, 252, 0.2);
+      }
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   TABLE                                    */
+  /* -------------------------------------------------------------------------- */
+
+  &__table {
+    width: 100%;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   STATS                                    */
+  /* -------------------------------------------------------------------------- */
+
+  &__stats {
+    width: 100%;
+  }
+}

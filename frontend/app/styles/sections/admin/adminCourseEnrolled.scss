@@ -1,0 +1,379 @@
+.admin-course-enrolled {
+  width: 100%;
+
+  background: white;
+
+  border-radius: 28px;
+
+  padding: 1.5rem;
+
+  border: 1px solid #edf2f7;
+
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5rem;
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   HEADER                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+
+      color: #0f172a;
+
+      margin-bottom: 0.35rem;
+    }
+
+    p {
+      font-size: 0.88rem;
+
+      color: #64748b;
+    }
+  }
+
+  .export-btn {
+    height: 46px;
+
+    padding: 0 1.2rem;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: linear-gradient(
+      135deg,
+      #6d5dfc,
+      #8b7cff
+    );
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+
+    gap: 0.55rem;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+    svg {
+      font-size: 1rem;
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  FILTERS                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1rem;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   SEARCH                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__search {
+    width: 420px;
+    height: 48px;
+
+    border-radius: 14px;
+
+    border: 1px solid #e2e8f0;
+
+    background: #f8fafc;
+
+    display: flex;
+    align-items: center;
+
+    gap: 0.8rem;
+
+    padding: 0 1rem;
+
+    svg {
+      font-size: 1rem;
+
+      color: #64748b;
+    }
+
+    input {
+      flex: 1;
+
+      border: none;
+      outline: none;
+
+      background: transparent;
+
+      font-size: 0.88rem;
+
+      color: #0f172a;
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   ACTIONS                                  */
+  /* -------------------------------------------------------------------------- */
+
+  &__actions {
+    display: flex;
+    align-items: center;
+
+    gap: 0.8rem;
+
+    button,
+    select {
+      height: 46px;
+
+      padding: 0 1rem;
+
+      border-radius: 12px;
+
+      border: 1px solid #e2e8f0;
+
+      background: white;
+
+      font-size: 0.82rem;
+      font-weight: 500;
+
+      color: #475569;
+
+      cursor: pointer;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+
+      gap: 0.5rem;
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    TABLE                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__table-wrapper {
+    overflow-x: auto;
+  }
+
+  &__table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    thead {
+      background: #f8fafc;
+
+      th {
+        padding: 1rem;
+
+        text-align: left;
+
+        font-size: 0.8rem;
+        font-weight: 700;
+
+        color: #475569;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #f1f5f9;
+
+        transition: all 0.25s ease;
+
+        &:hover {
+          background: #fafbff;
+        }
+
+        td {
+          padding: 1rem;
+
+          font-size: 0.84rem;
+
+          color: #334155;
+
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  STUDENT                                   */
+  /* -------------------------------------------------------------------------- */
+
+  &__student {
+    display: flex;
+    align-items: center;
+
+    gap: 0.8rem;
+
+    h4 {
+      font-size: 0.84rem;
+      font-weight: 700;
+
+      color: #0f172a;
+
+      margin-bottom: 0.2rem;
+    }
+
+    p {
+      font-size: 0.75rem;
+
+      color: #64748b;
+    }
+  }
+
+  &__avatar {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 14px;
+
+    background: linear-gradient(
+      135deg,
+      #6d5dfc,
+      #8b7cff
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    color: white;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   COURSE                                   */
+  /* -------------------------------------------------------------------------- */
+
+  .course {
+    font-size: 0.84rem;
+    font-weight: 600;
+
+    color: #0f172a;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                  PROGRESS                                  */
+  /* -------------------------------------------------------------------------- */
+
+  &__progress {
+    display: flex;
+    align-items: center;
+
+    gap: 0.7rem;
+
+    .bar {
+      width: 90px;
+      height: 8px;
+
+      border-radius: 999px;
+
+      background: #e2e8f0;
+
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+
+      border-radius: 999px;
+
+      background: linear-gradient(
+        135deg,
+        #6d5dfc,
+        #8b7cff
+      );
+    }
+
+    span {
+      font-size: 0.76rem;
+      font-weight: 700;
+
+      color: #475569;
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   STATUS                                   */
+  /* -------------------------------------------------------------------------- */
+
+  .status {
+    padding: 0.45rem 0.9rem;
+
+    border-radius: 999px;
+
+    font-size: 0.74rem;
+    font-weight: 700;
+
+    &.active {
+      background: #dbeafe;
+
+      color: #2563eb;
+    }
+
+    &.completed {
+      background: #dcfce7;
+
+      color: #16a34a;
+    }
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                 VIEW BUTTON                                */
+  /* -------------------------------------------------------------------------- */
+
+  .view-btn {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #f8fafc;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+    svg {
+      font-size: 1rem;
+
+      color: #475569;
+    }
+
+    &:hover {
+      background: #eef2ff;
+    }
+  }
+}
