@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import cloudinary from './cloudinary';
 dotenv.config();
 
 function getEnv(key: string, required = true): string {
@@ -30,4 +31,9 @@ export const env = {
   SMTP_PORT: parseInt(process.env.SMTP_PORT || '587'),
   SMTP_USER: getEnv('SMTP_USER'),
   SMTP_PASS: getEnv('SMTP_PASS'),
+
+  cloud_name: getEnv('cloud_name'),
+  api_key: getEnv('api_key'),
+  api_secret: getEnv('api_secret'),
+  cloudinary_url: getEnv('cloudinary_url'),
 };

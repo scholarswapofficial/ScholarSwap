@@ -4,6 +4,7 @@ import swaggerUi from "swagger-ui-express";
 
 import authRoutes from "./routes/auth.routes";
 import profileRoutes from "./routes/profile.route";
+import libraryRoutes from "./routes/library.routes";
 import { swaggerSpec } from "./config/swagger";
 
 const app = express();
@@ -23,6 +24,7 @@ app.get("/welcome", (req, res) => {
 // =============================
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
+app.use("/api/library", libraryRoutes);
 
 
 // =============================
