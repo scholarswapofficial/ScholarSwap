@@ -9,6 +9,7 @@ import { verifyToken } from '../utils/jwt';
   try {
     const decoded = verifyToken(token);
     (req as any).user = decoded;
+    // console.log("Authenticated user:", decoded);
     next();
   } catch {
     res.status(401).json({ message: 'Invalid token' });
