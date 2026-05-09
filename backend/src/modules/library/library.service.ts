@@ -1,5 +1,9 @@
 import Book from "../../models/book.model";
 import Purchase from "../../models/purchase.model";
+import { createClient } from "redis";
+
+const redis = createClient();
+redis.connect();
 
 export const createBookService = async (data: any) => {
   const book = await Book.create(data);
@@ -7,13 +11,25 @@ export const createBookService = async (data: any) => {
 };
 
 export const getBookForView = async (bookId: string, userId: string) => {
-  // 1. Find book
+  // 🔹 Cache key
+  const cacheKey = `pdf:${bookId}`;
+
+  // 🔹 1. Check Redis
+  const cached = await redis.get(cacheKey);
+  if (cached) {
+    console.log("CACHE HIT ✅");
+    return Buffer.from(cached, "base64");
+  }
+
+  console.log("CACHE MISS ❌");
+
+  // 🔹 2. Find book
   const book = await Book.findById(bookId);
   if (!book) {
     throw new Error("BOOK_NOT_FOUND");
   }
 
-  // 2. Access control
+  // 🔹 3. Access control
   if (!book.isFree) {
     const purchase = await Purchase.findOne({
       user: userId,
@@ -22,11 +38,11 @@ export const getBookForView = async (bookId: string, userId: string) => {
     });
 
     if (!purchase) {
-      throw new Error("ACCESS_DENIED !!! You need to purchase this book to view it.");
+      throw new Error("ACCESS_DENIED");
     }
   }
 
-  // 3. Fetch PDF from Cloudinary
+  // 🔹 4. Fetch from Cloudinary
   const response = await fetch(book.fileUrl);
 
   if (!response.ok) {
@@ -34,7 +50,12 @@ export const getBookForView = async (bookId: string, userId: string) => {
   }
 
   const arrayBuffer = await response.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
 
-  return Buffer.from(arrayBuffer);
+  // 🔹 5. Store in Redis (TTL = 1 hour)
+  await redis.set(cacheKey, buffer.toString("base64"), {
+    EX: 7200,//2 * 3600, // 2 hours
+  });
+
+  return buffer;
 };
-

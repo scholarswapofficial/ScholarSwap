@@ -1,4 +1,3 @@
-
 import { Request, Response } from "express";
 import { uploadPdfToCloudinary } from "../../utils/uploadToCloudinary";
 import { createBookService, getBookForView } from "./library.service";
@@ -15,7 +14,6 @@ type CreateBookRequest = Request & {
 
 export const createBook = async (req: CreateBookRequest, res: Response) => {
   try {
-    // 1. Validate file
     if (!req.file) {
       return res.status(400).json({ message: "PDF file is required" });
     }
@@ -24,15 +22,13 @@ export const createBook = async (req: CreateBookRequest, res: Response) => {
       return res.status(400).json({ message: "Only PDF allowed" });
     }
 
-    // 2. Upload to Cloudinary
     const result: any = await uploadPdfToCloudinary(req.file.buffer);
 
-    // 3. Prepare DB data
     const bookData = {
       title: req.body.title,
       description: req.body.description,
       author: req.body.author,
-      fileUrl: result.secure_url, // from Cloudinary
+      fileUrl: result.secure_url,
       thumbnail: req.body.thumbnail || "",
       price: Number(req.body.price),
       isFree: Number(req.body.price) === 0,
@@ -40,13 +36,11 @@ export const createBook = async (req: CreateBookRequest, res: Response) => {
       department: req.body.department,
       semester: Number(req.body.semester),
       subject: req.body.subject,
-      uploadedBy: req.user?.id, // if auth added
+      uploadedBy: req.user?.id,
     };
 
-    // 4. Save in MongoDB
     const book = await createBookService(bookData);
 
-    // 5. Response
     res.status(201).json({
       message: "Book uploaded successfully",
       data: book,
@@ -59,7 +53,6 @@ export const createBook = async (req: CreateBookRequest, res: Response) => {
   }
 };
 
-
 type ViewBookRequest = Request & {
   user?: {
     id?: string;
@@ -68,8 +61,11 @@ type ViewBookRequest = Request & {
 
 export const viewBook = async (req: ViewBookRequest, res: Response) => {
   try {
-    const bookId = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
-    const userId = req.user?.id; // from auth middleware
+    const bookId = Array.isArray(req.params.id)
+      ? req.params.id[0]
+      : req.params.id;
+
+    const userId = req.user?.id;
 
     if (!bookId) {
       return res.status(400).json({ message: "Book ID is required" });
@@ -77,8 +73,15 @@ export const viewBook = async (req: ViewBookRequest, res: Response) => {
 
     const pdfBuffer = await getBookForView(bookId, userId || "");
 
+    // 🔥 HTTP caching headers
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Content-Disposition", "inline");
+
+    // 🔐 private cache (important for protected content)
+    res.setHeader(
+      "Cache-Control",
+      "private, max-age=3600, must-revalidate"
+    );
 
     res.send(pdfBuffer);
   } catch (error: any) {

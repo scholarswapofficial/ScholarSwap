@@ -1,0 +1,87 @@
+.pdf-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #2b2b2b;
+}
+
+/* 🔝 Toolbar */
+.toolbar {
+  height: 50px;
+  background: #1f1f1f;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 15px;
+  border-bottom: 1px solid #444;
+}
+
+.toolbar button {
+  background: #333;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.toolbar button:hover {
+  background: #555;
+}
+
+.toolbar input {
+  width: 50px;
+  text-align: center;
+  background: #222;
+  border: 1px solid #555;
+  color: white;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: #555;
+  margin: 0 10px;
+}
+
+/* 📄 Viewer */
+.viewer {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+/* 📄 Page Wrapper */
+.page-wrapper {
+  position: relative;
+}
+
+/* 🔐 Watermark */
+.watermark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.15;
+}
+
+.watermark span {
+  margin: 20px;
+  font-size: 18px;
+  transform: rotate(-30deg);
+  color: #888;
+}
+
+/* ⏳ Loader */
+.loader {
+  color: white;
+  text-align: center;
+  margin-top: 100px;
+}
