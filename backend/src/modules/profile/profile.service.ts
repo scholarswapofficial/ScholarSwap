@@ -67,4 +67,12 @@ export class StudentService {
     if (!user) throw new Error("Profile not found");
     return user;
   }
+
+  static async suspendUser(id: string) {
+      const user = await User.findById(id);
+      if (!user) throw new Error("Profile not found");
+      user.isSuspended = true;
+      await user.save();
+      return user;
+  }
 }

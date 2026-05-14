@@ -1,5 +1,6 @@
-import dotenv from 'dotenv';
+import dotenv, { parse } from 'dotenv';
 import cloudinary from './cloudinary';
+import { get } from 'http';
 dotenv.config();
 
 function getEnv(key: string, required = true): string {
@@ -36,4 +37,6 @@ export const env = {
   api_key: getEnv('api_key'),
   api_secret: getEnv('api_secret'),
   cloudinary_url: getEnv('cloudinary_url'),
+  REDIS_TTL: parseInt(getEnv('REDIS_TTL')) , // Default to 2 hours),
+  ADMIN_CODE: parseInt(getEnv('ADMIN_CODE')),
 };

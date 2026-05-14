@@ -96,9 +96,12 @@ export const loginService = async (email: string, password: string) => {
   if (!isMatch) {
     throw new Error("Wrong password");
   }
-
+  if(user.isSuspended===true)
+    {
+      return res.status(400).json({message: "Your account has been suspended. Please contact support."});
+    }
   const token = jwt.sign(
-    { id: user._id, email: user.email, name: user.name, role: user.role },
+    { id: user._id, email: user.email, name: user.name, role: user.role,user_code: user.user_code },
     process.env.JWT_SECRET!,
     { expiresIn: "7d" }
   );

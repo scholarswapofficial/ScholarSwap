@@ -77,4 +77,23 @@ export class StudentController {
       });
     }
   }
+  
+
+  static async suspendUser(req: Request, res: Response) {
+    try {
+      const userIdParam = req.params.id; // Admin can specify ID  
+    const userId = Array.isArray(userIdParam) ? userIdParam[0] : userIdParam;
+      const user = await StudentService.suspendUser(userId);
+      res.json({
+        success: true,
+        data: user,
+        message: "User suspended successfully",
+      });
+    } catch (error: any) {
+      res.status(404).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  }
 }

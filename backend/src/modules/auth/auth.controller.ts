@@ -10,7 +10,7 @@ import {env} from "../../config/env";
 
 export const signup = async (req: Request, res: Response) => {
   try {
-    console.log("Signup request body:", req.body); // Debug log
+    // console.log("Signup request body:", req.body); // Debug log
 
     const { user, token } = await signupService(req.body);
 

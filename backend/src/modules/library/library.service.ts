@@ -2,6 +2,7 @@ import Book from "../../models/book.model";
 import Purchase from "../../models/purchase.model";
 import { redisClient} from '../../config/redis';
 import mongoose from "mongoose";
+import { env } from "../../config/env";
 
 import { v2 as cloudinary } from "cloudinary";
 import { getPublicIdFromUrl } from "../../utils/cloudinary";
@@ -57,7 +58,7 @@ export const getBookForView = async (bookId: string, userId: string) => {
 
   // 🔹 5. Store in Redis (TTL = 1 hour)
   await redisClient.set(cacheKey, buffer.toString("base64"), {
-    EX: 7200,//2 * 3600, // 2 hours
+    EX: env.REDIS_TTL,//2 * 3600, // 2 hours
   });
 
   return buffer;

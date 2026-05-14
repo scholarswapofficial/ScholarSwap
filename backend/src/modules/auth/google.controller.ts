@@ -21,6 +21,10 @@ export const googleLogin = async (req: Request, res: Response) => {
     }
 
     let user = await User.findOne({ email });
+    if(user.isSuspended===true)
+    {
+      return res.status(400).json({message: "Your account has been suspended. Please contact support."});
+    }
 
     if (!user) {
       user = await User.create({
@@ -35,7 +39,7 @@ export const googleLogin = async (req: Request, res: Response) => {
     }
 
     const jwtToken = jwt.sign(
-      { id: user._id , email: user.email, name: user.name, role: user.role},
+      { id: user._id , email: user.email, name: user.name, role: user.role, user_code: user.user_code },
       process.env.JWT_SECRET!,
       { expiresIn: "7d" }
     );

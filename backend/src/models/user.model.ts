@@ -5,6 +5,7 @@ export interface IUser extends Document {
   email: string;
   password: string;
   role: "user" | "admin";
+  user_code: number;
   college: string;
   collegeType: string;
   department: string;
@@ -24,6 +25,7 @@ export interface IUser extends Document {
   phone: string;
   location: string;
   isPublic: boolean;
+  isSuspended: boolean;
 }
 
 const userSchema = new mongoose.Schema<IUser>(
@@ -39,7 +41,7 @@ const userSchema = new mongoose.Schema<IUser>(
       enum: ["user", "admin"],
       default: "user",
     },
-
+    user_code: { type: Number, required: true, default: 101},
     college: { type: String },
     collegeType: { type: String },
     department: { type: String },
@@ -78,6 +80,10 @@ const userSchema = new mongoose.Schema<IUser>(
     isPublic: {
       type: Boolean,
       default: true,
+    },
+    isSuspended: {
+      type: Boolean,
+      default: false,
     },
   },
   {

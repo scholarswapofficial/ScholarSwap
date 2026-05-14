@@ -13,6 +13,8 @@ router.get("/get-profile/:id", authProtect, adminProtect,StudentController.getPr
 router.get("/get-all-profile", authProtect, adminProtect,StudentController.getAllProfile);
 // delete profile (admin only)
 router.delete("/delete-profile/:id", authProtect, adminProtect, StudentController.deleteProfile);
+// suspend user (admin only)
+router.post("/suspend-user/:id", authProtect, adminProtect, StudentController.suspendUser);
 
 
 
