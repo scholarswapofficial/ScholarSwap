@@ -21,9 +21,8 @@ export const googleLogin = async (req: Request, res: Response) => {
     }
 
     let user = await User.findOne({ email });
-    if(user.isSuspended===true)
-    {
-      return res.status(400).json({message: "Your account has been suspended. Please contact support."});
+    if (user && user.isSuspended === true) {
+      return res.status(400).json({ message: "Your account has been suspended. Please contact support." });
     }
 
     if (!user) {
