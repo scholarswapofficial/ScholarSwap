@@ -9,12 +9,14 @@ const CourseCard = ({ course }: Props) => {
     <div className="course__card">
       {/* Image */}
       <div className="course__card-image">
-        <Image
-          src={course.image}
-          alt={course.title}
-          width={300}
-          height={180}
-        />
+       <Image
+  src={course.image}
+  alt={course.title}
+  width={300}
+  height={180}
+  className="course__image"
+  sizes="(max-width: 768px) 100vw, 300px"
+/>
       </div>
 
       {/* Content */}
