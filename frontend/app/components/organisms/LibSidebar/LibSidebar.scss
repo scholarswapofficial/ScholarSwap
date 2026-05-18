@@ -198,15 +198,92 @@
 }
 
 /* =========================
-   RESPONSIVE
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+  .lib-sidebar {
+    width: 90px;
+  }
+
+  .lib-sidebar.collapsed {
+    width: 80px;
+  }
+
+  .lib-sidebar__profile div {
+    display: none;
+  }
+
+  .nav-inner {
+    width: auto;
+    justify-content: center;
+  }
+
+  .lib-sidebar__bottom {
+    display: none;
+  }
+}
+
+/* =========================
+   MOBILE
 ========================= */
 
 @media (max-width: 768px) {
   .lib-sidebar {
-    width: 200px;
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 280px;
+    max-width: 85vw;
+
+    height: 100vh;
+
+    z-index: 1000;
+
+    transform: translateX(-100%);
+
+    transition:
+      transform 0.3s ease,
+      width 0.3s ease;
+
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+
+    overflow-y: auto;
   }
 
+  /* OPEN STATE */
+  .lib-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  /* COLLAPSED RESET */
   .lib-sidebar.collapsed {
-    width: 70px;
+    width: 280px;
+  }
+
+  /* SHOW TEXT AGAIN */
+  .lib-sidebar.collapsed
+    .lib-sidebar__profile div {
+    display: block;
+  }
+
+  .nav-inner {
+    width: 100%;
+  }
+
+  .nav-text--hidden {
+    opacity: 1;
+    width: auto;
+    overflow: visible;
+  }
+
+  .nav-tooltip {
+    display: none;
+  }
+
+  .lib-sidebar__bottom {
+    display: flex;
   }
 }

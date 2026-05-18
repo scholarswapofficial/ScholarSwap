@@ -98,3 +98,149 @@
     align-self: center;
   }
 }
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1024px) {
+  .friend {
+    width: 300px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .friend {
+    width: 100%;
+
+    height: 100vh;
+
+    border-right: none;
+
+    background: #fff;
+
+    /* HEADER */
+
+    &__header {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 14px;
+
+      position: sticky;
+      top: 0;
+
+      z-index: 10;
+
+      background: #fff;
+    }
+
+    &__header h2 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    /* BACK */
+
+    &__back {
+      font-size: 13px;
+
+      svg {
+        font-size: 17px;
+      }
+    }
+
+    /* SEARCH */
+
+    &__search {
+      padding: 12px 14px;
+
+      position: sticky;
+      top: 61px;
+
+      z-index: 9;
+
+      background: #fff;
+
+      input {
+        height: 42px;
+
+        font-size: 13px;
+
+        border-radius: 12px;
+
+        padding: 0 14px;
+      }
+    }
+
+    /* LIST */
+
+    &__list {
+      padding-bottom: 20px;
+    }
+
+    /* ITEM */
+
+    &__item {
+      padding: 12px 14px;
+
+      gap: 10px;
+    }
+
+    /* AVATAR */
+
+    &__avatar {
+      width: 48px;
+      height: 48px;
+
+      flex-shrink: 0;
+    }
+
+    /* INFO */
+
+    &__info {
+      min-width: 0;
+
+      p {
+        font-size: 12px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    /* TOP */
+
+    &__top {
+      gap: 10px;
+
+      h4 {
+        font-size: 14px;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      span {
+        font-size: 11px;
+
+        flex-shrink: 0;
+      }
+    }
+
+    /* ACTIVE */
+
+    &__active {
+      width: 9px;
+      height: 9px;
+    }
+  }
+}

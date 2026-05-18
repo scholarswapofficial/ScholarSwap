@@ -78,12 +78,101 @@
   }
 }
 
-/* 🔷 Responsive */
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1024px) {
+  .lib-header {
+    &__filters {
+      gap: 10px;
+    }
+
+    &__select {
+      font-size: 13px;
+      padding: 9px 34px 9px 12px;
+    }
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 768px) {
   .lib-header {
+    gap: 14px;
+
+    /* TITLE */
+    &__title {
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    /* FILTERS */
+    &__filters {
+      flex-wrap: nowrap;
+
+      overflow-x: auto;
+
+      padding-bottom: 4px;
+
+      scrollbar-width: none;
+
+      -webkit-overflow-scrolling: touch;
+    }
+
+    &__filters::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* SELECT */
+    &__select {
+      flex-shrink: 0;
+
+      min-width: 140px;
+
+      height: 42px;
+
+      font-size: 13px;
+
+      border-radius: 10px;
+
+      padding: 10px 36px 10px 12px;
+    }
+
+    /* SEARCH + SORT */
     &__search-sort {
       flex-direction: column;
       align-items: stretch;
+
+      gap: 12px;
+
+      padding: 12px;
+    }
+
+    /* SEARCH */
+    &__search {
+      width: 100%;
+
+      input {
+        font-size: 13px;
+      }
+    }
+
+    /* SORT */
+    &__sort {
+      width: 100%;
+
+      justify-content: space-between;
+
+      span {
+        font-size: 13px;
+      }
+
+      .lib-header__select {
+        min-width: 120px;
+      }
     }
   }
 }

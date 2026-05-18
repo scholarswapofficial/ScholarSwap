@@ -365,3 +365,179 @@
   color: #777;
   font-size: 14px;
 }
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.profile-bar-menu {
+  display: none;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  border: none;
+  border-radius: 12px;
+
+  width: 42px;
+  height: 42px;
+
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  flex-shrink: 0;
+
+  svg {
+    font-size: 20px;
+  }
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+  .profile-bar {
+    padding: 10px 18px;
+  }
+
+  .profile-search {
+    width: 220px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  /* PAGE */
+  .profile-main {
+    padding: 12px;
+  }
+
+  /* TOP BAR */
+  .profile-bar {
+    width: 100%;
+
+    margin: 0;
+    border-radius: 16px;
+
+    padding: 12px;
+
+    gap: 10px;
+  }
+
+  /* LEFT */
+  .profile-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* SHOW HAMBURGER */
+  .profile-bar-menu {
+    display: flex;
+  }
+
+  .profile-bar-title {
+    font-size: 18px;
+    white-space: nowrap;
+  }
+
+  /* SEARCH */
+  .profile-bar-center {
+    flex: 1;
+  }
+
+  .profile-search {
+    width: 100%;
+    min-width: 0;
+
+    height: 42px;
+
+    padding: 6px 10px;
+  }
+
+  .profile-search input {
+    font-size: 13px;
+  }
+
+  /* RIGHT */
+  .profile-bar-right {
+    margin-left: 0;
+    gap: 8px;
+  }
+
+  .profile-bar-icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+  }
+
+  .profile-bar-avatar {
+    width: 40px;
+    height: 40px;
+
+    margin-right: 0;
+  }
+
+  /* HEADER */
+  .profile-header-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    padding: 60px 20px 20px;
+  }
+
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+
+    bottom: -35px;
+    left: 20px;
+  }
+
+  .profile-name {
+    font-size: 18px;
+  }
+
+  .profile-meta {
+    gap: 12px;
+  }
+
+  .profile-edit-btn {
+    width: 100%;
+  }
+
+  /* TABS */
+  .profile-tabs {
+    width: 100%;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+  }
+
+  .profile-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .profile-tabs button {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* CONTENT */
+  .profile-content {
+    padding: 14px;
+  }
+
+  .profile-overview {
+    grid-template-columns: 1fr;
+  }
+}

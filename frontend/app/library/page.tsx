@@ -2,42 +2,56 @@
 
 import { useState } from "react";
 
+import ProfileBar from "@/sections/profile/ProfileBar";
 import LibSidebar from "@/components/organisms/LibSidebar/LibSidebar";
 import LibraryHeader from "@/components/organisms/LibraryHeader/LibraryHeader";
 import BookSection from "@/components/organisms/BookSection/BookSection";
-import ProfileBar from "@/sections/profile/ProfileBar";
 
 export default function Page() {
-  // 🔥 COLLAPSE STATE (shared with sidebar)
-  const [collapsed, setCollapsed] = useState(false);
+  // SIDEBAR COLLAPSE
+  const [collapsed, setCollapsed] =
+    useState(false);
 
-  // 🔷 Filters
-  const [filters, setFilters] = useState({
-    college: "All Colleges",
-    department: "All",
-    subject: "All",
-    semester: "All",
-    type: "All",
-    language: "All",
-    price: "Free",
-  });
+  // MOBILE DRAWER
+  const [mobileOpen, setMobileOpen] =
+    useState(false);
 
-  // 🔷 Search
-  const [search, setSearch] = useState("");
+  // FILTERS
+  const [filters, setFilters] =
+    useState({
+      college: "All Colleges",
+      department: "All",
+      subject: "All",
+      semester: "All",
+      type: "All",
+      language: "All",
+      price: "Free",
+    });
 
-  // 🔷 Sort
-  const [sort, setSort] = useState("Popular");
+  // SEARCH
+  const [search, setSearch] =
+    useState("");
+
+  // SORT
+  const [sort, setSort] =
+    useState("Popular");
 
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
-      
-      {/* 🔷 SIDEBAR */}
+    <div
+      style={{
+        display: "flex",
+        height: "100vh",
+      }}
+    >
+      {/* SIDEBAR */}
       <LibSidebar
         collapsed={collapsed}
         setCollapsed={setCollapsed}
+        mobileOpen={mobileOpen}
+        setMobileOpen={setMobileOpen}
       />
 
-      {/* 🔷 RIGHT SIDE */}
+      {/* RIGHT SIDE */}
       <div
         style={{
           flex: 1,
@@ -45,10 +59,12 @@ export default function Page() {
           flexDirection: "column",
         }}
       >
-        {/* 🔷 TOP BAR */}
-        <ProfileBar />
+        {/* TOP BAR */}
+        <ProfileBar
+          setMobileOpen={setMobileOpen}
+        />
 
-        {/* 🔷 MAIN CONTENT */}
+        {/* MAIN */}
         <div
           style={{
             flex: 1,

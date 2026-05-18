@@ -20,23 +20,31 @@ const ProfilePage = () => {
   const [collapsed, setCollapsed] =
     useState(false);
 
+  // MOBILE SIDEBAR
+  const [mobileOpen, setMobileOpen] =
+    useState(false);
+
   return (
     <div className="profile-page">
       <Sidebar
         collapsed={collapsed}
         setCollapsed={setCollapsed}
+        mobileOpen={mobileOpen}
+        setMobileOpen={setMobileOpen}
       />
 
-      {/* ✅ NEW WRAPPER */}
+      {/* WRAPPER */}
       <div className="profile-container">
-        {/* ✅ TOP BAR */}
-        <ProfileBar />
+        {/* TOP BAR */}
+        <ProfileBar
+          setMobileOpen={setMobileOpen}
+        />
 
-        {/* ✅ MAIN CONTENT */}
+        {/* MAIN */}
         <div className="profile-main">
           <ProfileHeader />
 
-          {/* Tabs */}
+          {/* TABS */}
           <div className="profile-tabs">
             {[
               "overview",
@@ -60,7 +68,7 @@ const ProfilePage = () => {
             ))}
           </div>
 
-          {/* Content */}
+          {/* CONTENT */}
           <div className="profile-content">
             {tab ===
               "overview" && (
