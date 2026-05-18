@@ -513,12 +513,142 @@
 /* =========================
    RESPONSIVE
 ========================= */
+
 @media (max-width: 768px) {
-  .post-card {
-    padding: 0.8rem;
+  /* FEED */
+  .feed {
+    gap: 1rem;
   }
 
+  /* TABS */
+  .feed-tabs {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .feed-tabs h2 {
+    font-size: 1.15rem;
+  }
+
+  .feed-tabs__list {
+    width: 100%;
+    overflow-x: auto;
+
+    scrollbar-width: none;
+  }
+
+  .feed-tabs__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .feed-tabs__list span {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* POST CREATOR */
   .post-creator {
-    padding: 0.8rem;
+    padding: 0.9rem;
+    border-radius: 16px;
+  }
+
+  .post-creator__top {
+    gap: 0.7rem;
+  }
+
+  .post-creator__input {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* ACTIONS */
+  .post-creator__actions {
+    margin-left: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .post-creator__left-actions {
+    width: 100%;
+
+    overflow-x: auto;
+    padding-bottom: 2px;
+
+    scrollbar-width: none;
+  }
+
+  .post-creator__left-actions::-webkit-scrollbar {
+    display: none;
+  }
+
+  .post-creator__btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* POST CARD */
+  .post-card {
+    padding: 0.9rem;
+    border-radius: 14px;
+  }
+
+  .post-card__title {
+    font-size: 0.95rem;
+  }
+
+  .post-card__description {
+    font-size: 0.85rem;
+  }
+
+  .post-card__media img {
+    max-height: 280px;
+    object-fit: cover;
+  }
+
+  /* HEADER */
+  .post-header {
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .post-header__user {
+    font-size: 0.9rem;
+  }
+
+  .post-header__time {
+    font-size: 0.72rem;
+  }
+
+  /* ACTIONS */
+  .post-actions {
+    gap: 0.4rem;
+    justify-content: space-between;
+  }
+
+  .post-actions__item {
+    font-size: 0.75rem;
+    gap: 0.25rem;
+  }
+
+  /* NAVBAR */
+  .feed-navbar {
+    padding: 0.5rem;
+    border-radius: 12px;
+  }
+
+  .feed-navbar__item {
+    font-size: 0.68rem;
+    padding: 0.35rem;
+  }
+
+  .feed-navbar__item svg {
+    font-size: 1rem;
   }
 }

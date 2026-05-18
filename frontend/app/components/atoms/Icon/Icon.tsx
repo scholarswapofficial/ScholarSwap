@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import {
   FaHome,
   FaBook,
@@ -12,7 +14,10 @@ type IconProps = {
   className?: string;
 };
 
-const iconMap: Record<string, JSX.Element> = {
+const iconMap: Record<
+  string,
+  ReactNode
+> = {
   home: <FaHome />,
   library: <FaBook />,
   marketplace: <FaStore />,
@@ -21,7 +26,10 @@ const iconMap: Record<string, JSX.Element> = {
   logout: <FaSignOutAlt />,
 };
 
-const Icon = ({ name, className = "" }: IconProps) => {
+const Icon = ({
+  name,
+  className = "",
+}: IconProps) => {
   return (
     <span className={className}>
       {iconMap[name] || <FaHome />}

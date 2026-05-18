@@ -1,0 +1,196 @@
+/* =========================
+   MOBILE HEADER
+========================= */
+
+.mobile-header {
+  display: none;
+}
+
+/* =========================
+   MOBILE ONLY
+========================= */
+
+@media (max-width: 768px) {
+  .mobile-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    width: 100%;
+
+    padding: 0.85rem 1rem;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid #e5e7eb;
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  }
+
+  /* =========================
+     LEFT
+  ========================= */
+
+  .mobile-header__left {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  /* HAMBURGER */
+
+  .mobile-header__menu-btn {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #f3f4f6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+  }
+
+  .mobile-header__menu-btn:hover {
+    background: #e5e7eb;
+  }
+
+  .mobile-header__menu-btn svg {
+    font-size: 1.3rem;
+    color: #111827;
+  }
+
+  /* =========================
+     BRAND
+  ========================= */
+
+  .mobile-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .mobile-header__logo {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+
+    background: linear-gradient(135deg, #ff6a00, #ff8c42);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+
+    flex-shrink: 0;
+  }
+
+  .mobile-header__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .mobile-header__text h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111827;
+  }
+
+  .mobile-header__text span {
+    font-size: 0.68rem;
+    color: #6b7280;
+  }
+
+  /* =========================
+     RIGHT
+  ========================= */
+
+  .mobile-header__right {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  /* ICON BUTTON */
+
+  .mobile-header__icon-btn {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+    border: none;
+
+    background: #f3f4f6;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    position: relative;
+  }
+
+  .mobile-header__icon-btn:hover {
+    background: #e5e7eb;
+  }
+
+  .mobile-header__icon-btn svg {
+    font-size: 1.15rem;
+    color: #374151;
+  }
+
+  /* NOTIFICATION DOT */
+
+  .mobile-header__dot {
+    position: absolute;
+
+    top: 9px;
+    right: 9px;
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #ef4444;
+
+    border: 2px solid white;
+  }
+
+  /* PROFILE */
+
+  .mobile-header__profile {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    cursor: pointer;
+
+    border: 2px solid #e5e7eb;
+  }
+}

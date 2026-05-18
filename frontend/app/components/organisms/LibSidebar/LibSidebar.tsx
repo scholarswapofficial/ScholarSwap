@@ -1,31 +1,57 @@
 "use client";
 
-import { useState } from "react";
 import { usePathname } from "next/navigation";
 
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import {
+  FiChevronLeft,
+  FiChevronRight,
+} from "react-icons/fi";
 
 import "./LibSidebar.scss";
+
 import Logo from "@/components/atoms/Logo/Logo";
 import Text from "@/components/atoms/Text/Text";
 import NavItem from "@/components/molecules/NavItem/NavItem";
 
-const LibSidebar = () => {
+type LibSidebarProps = {
+  collapsed: boolean;
+
+  setCollapsed: (
+    value: boolean
+  ) => void;
+};
+
+const LibSidebar = ({
+  collapsed,
+  setCollapsed,
+}: LibSidebarProps) => {
   const pathname = usePathname();
-  const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <aside className={`lib-sidebar ${collapsed ? "collapsed" : ""}`}>
-      
+    <aside
+      className={`lib-sidebar ${
+        collapsed
+          ? "collapsed"
+          : ""
+      }`}
+    >
       {/* 🔥 BRAND / TOP */}
       <div className="lib-sidebar__brand">
-        {!collapsed && <Logo text="ScholarSwap" />}
+        {!collapsed && (
+          <Logo text="ScholarSwap" />
+        )}
 
         <button
           className="lib-sidebar__toggle"
-          onClick={() => setCollapsed(!collapsed)}
+          onClick={() =>
+            setCollapsed(!collapsed)
+          }
         >
-          {collapsed ? <FiChevronRight /> : <FiChevronLeft />}
+          {collapsed ? (
+            <FiChevronRight />
+          ) : (
+            <FiChevronLeft />
+          )}
         </button>
       </div>
 
@@ -39,8 +65,13 @@ const LibSidebar = () => {
 
         {!collapsed && (
           <div>
-            <Text variant="h4">John Doe</Text>
-            <Text variant="p">Student</Text>
+            <Text variant="h4">
+              John Doe
+            </Text>
+
+            <Text variant="p">
+              Student
+            </Text>
           </div>
         )}
       </div>

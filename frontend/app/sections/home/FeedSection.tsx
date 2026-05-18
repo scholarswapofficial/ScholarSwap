@@ -2,7 +2,7 @@ import FeedTabs from "@/components/molecules/FeedTabs/FeedTabs";
 import PostCreator from "@/components/organisms/PostCreator/PostCreator";
 import FeedList from "@/components/organisms/FeedList/FeedList";
 
-import { feedLayoutConfig } from "@/constant/feed/layout";
+import { feedLayoutConfig } from "@/constant/feed/feedlayout";
 
 import styles from "@/styles/sections/home/feed.module.scss";
 

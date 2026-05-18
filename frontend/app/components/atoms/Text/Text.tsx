@@ -1,10 +1,31 @@
+import type { ReactNode } from "react";
+
 type TextProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
+  variant?:
+    | "p"
+    | "span"
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4";
 };
 
-const Text = ({ children, className = "" }: TextProps) => {
-  return <span className={`text ${className}`}>{children}</span>;
+const Text = ({
+  children,
+  className = "",
+  variant = "span",
+}: TextProps) => {
+  const Component = variant;
+
+  return (
+    <Component
+      className={`text ${className}`}
+    >
+      {children}
+    </Component>
+  );
 };
 
 export default Text;

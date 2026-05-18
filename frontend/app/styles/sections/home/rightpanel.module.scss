@@ -225,3 +225,127 @@
   border-radius: 6px;
   margin-left: 6px;
 }
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1024px) {
+  .rightpanel {
+    gap: 0.8rem;
+  }
+
+  .card {
+    padding: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .rightpanel {
+    width: 100%;
+    gap: 0.9rem;
+  }
+
+  /* CARD */
+  .card {
+    border-radius: 14px;
+    padding: 0.9rem;
+  }
+
+  .card__header {
+    margin-bottom: 0.7rem;
+  }
+
+  .card__title {
+    font-size: 0.95rem;
+  }
+
+  .card__link {
+    font-size: 0.75rem;
+  }
+
+  /* TRENDING */
+  .trending__item {
+    padding: 0.6rem 0;
+    gap: 0.6rem;
+  }
+
+  .trending__left {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .trending__tag {
+    font-size: 0.85rem;
+  }
+
+  .trending__posts {
+    font-size: 0.7rem;
+  }
+
+  /* EVENTS */
+  .event {
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .event__date {
+    flex-shrink: 0;
+  }
+
+  .event__info p {
+    font-size: 0.82rem;
+  }
+
+  .event__badge {
+    white-space: nowrap;
+    font-size: 0.65rem;
+  }
+
+  /* PEOPLE */
+  .person {
+    align-items: flex-start;
+  }
+
+  .person__avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .person__info p {
+    font-size: 0.82rem;
+  }
+
+  .connect {
+    padding: 5px 10px;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  /* MARKETPLACE */
+  .note-card {
+    padding: 0.75rem;
+    border-radius: 10px;
+    gap: 0.6rem;
+  }
+
+  .note-card__title {
+    font-size: 0.85rem;
+  }
+
+  .note-card__meta {
+    font-size: 0.68rem;
+  }
+
+  .note-card__price {
+    font-size: 0.8rem;
+    padding: 4px 7px;
+    white-space: nowrap;
+  }
+
+  .note-card__badge {
+    display: inline-block;
+    margin-top: 4px;
+    margin-left: 0;
+  }
+}

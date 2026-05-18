@@ -12,7 +12,12 @@
 
   background: #f9fafb;
 
-  transition: width 0.3s ease;
+  transition:
+    width 0.3s ease,
+    transform 0.3s ease;
+
+  position: relative;
+  z-index: 1000;
 }
 
 /* =========================
@@ -24,7 +29,27 @@
 }
 
 /* =========================
-   BRAND HEADER (NEW 🔥)
+   MOBILE OPEN
+========================= */
+
+.sidebar--mobile-open {
+  transform: translateX(0) !important;
+}
+
+/* =========================
+   MOBILE OVERLAY
+========================= */
+
+.sidebar__overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 999;
+}
+
+/* =========================
+   BRAND HEADER
 ========================= */
 
 .sidebar__brand {
@@ -43,6 +68,7 @@
 }
 
 /* LOGO ICON */
+
 .brand__icon {
   width: 40px;
   height: 40px;
@@ -56,9 +82,12 @@
   justify-content: center;
 
   font-weight: bold;
+
+  flex-shrink: 0;
 }
 
 /* TEXT */
+
 .brand__text h3 {
   font-size: 16px;
   font-weight: 600;
@@ -70,11 +99,15 @@
 }
 
 /* HIDE TEXT WHEN COLLAPSED */
+
 .sidebar--collapsed .brand__text {
   display: none;
 }
 
-/* TOGGLE BUTTON */
+/* =========================
+   TOGGLE BUTTON
+========================= */
+
 .sidebar__toggle {
   position: absolute;
   right: 10px;
@@ -92,6 +125,25 @@
   justify-content: center;
 }
 
+/* MOBILE CLOSE BUTTON */
+
+.sidebar__mobile-close {
+  display: none;
+
+  margin-left: auto;
+
+  background: transparent;
+  border: none;
+
+  color: white;
+  cursor: pointer;
+
+  font-size: 22px;
+
+  align-items: center;
+  justify-content: center;
+}
+
 /* =========================
    MENU
 ========================= */
@@ -100,6 +152,8 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  overflow-y: auto;
 }
 
 /* =========================
@@ -109,7 +163,7 @@
 .nav-item {
   display: flex;
   align-items: center;
-  justify-content: center;   /* 🔥 ADD THIS */
+  justify-content: center;
 
   gap: 10px;
   padding: 10px 12px;
@@ -120,40 +174,41 @@
   font-weight: 500;
 
   transition: all 0.25s ease;
-}
 
-/* CENTER ITEM CONTAINER */
-.nav-item {
-  display: flex;
-  justify-content: center; /* center whole block */
+  position: relative;
 }
 
 /* FIXED WIDTH INNER CONTENT */
+
 .nav-inner {
   display: flex;
   align-items: center;
   gap: 12px;
 
-  width: 160px; /* 🔥 KEY FIX */
+  width: 160px;
 }
 
-/* ICON WRAPPER 🔥 */
+/* ICON */
+
 .nav-icon {
   display: flex;
   align-items: center;
   justify-content: center;
 
   font-size: 20px;
+
+  flex-shrink: 0;
 }
 
 /* HOVER */
+
 .nav-item:hover {
   background: rgba(0, 0, 0, 0.04);
   transform: translateX(3px);
 }
 
 /* =========================
-   ACTIVE (MATCH DESIGN)
+   ACTIVE
 ========================= */
 
 .nav-item.active {
@@ -161,7 +216,7 @@
   color: #ff6a00;
 
   border-left: 4px solid #ff6a00;
-  padding-left: 8px; /* adjust for border */
+  padding-left: 8px;
 }
 
 /* =========================
@@ -182,6 +237,7 @@
 }
 
 /* HIDE TEXT */
+
 .nav-text--hidden {
   opacity: 0;
   width: 0;
@@ -203,14 +259,18 @@
   border: 1px solid #e5e7eb;
 
   transition: opacity 0.2s ease;
+
+  flex-shrink: 0;
 }
 
 /* HIDE IN COLLAPSED */
+
 .sidebar--collapsed .sidebar__bottom {
   opacity: 0;
 }
 
 /* TEXT */
+
 .sidebar__bottom p {
   font-weight: 600;
 }
@@ -224,11 +284,6 @@
    TOOLTIP
 ========================= */
 
-.nav-item {
-  position: relative;
-}
-
-/* TOOLTIP */
 .nav-tooltip {
   position: absolute;
   left: 100%;
@@ -251,6 +306,91 @@
 }
 
 /* SHOW ON HOVER */
+
 .nav-item:hover .nav-tooltip {
   opacity: 1;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 90px;
+  }
+
+  .sidebar--collapsed {
+    width: 80px;
+  }
+
+  .brand__text {
+    display: none;
+  }
+
+  .sidebar__bottom {
+    display: none;
+  }
+
+  .nav-inner {
+    width: auto;
+    justify-content: center;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 280px;
+  max-width: 85vw;
+
+  height: 100vh;
+
+  transform: translateX(-100%);
+
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+
+  overflow-y: auto;
+}
+  .sidebar--collapsed {
+    width: 280px;
+  }
+
+  .sidebar--collapsed .brand__text {
+    display: block;
+  }
+
+  .sidebar__toggle {
+    display: none;
+  }
+
+  .sidebar__mobile-close {
+    display: flex;
+  }
+
+  .sidebar__bottom {
+    display: block;
+    opacity: 1;
+  }
+
+  .nav-inner {
+    width: 100%;
+  }
+
+  .nav-text--hidden {
+    opacity: 1;
+    width: auto;
+    overflow: visible;
+  }
+
+  .nav-tooltip {
+    display: none;
+  }
 }
