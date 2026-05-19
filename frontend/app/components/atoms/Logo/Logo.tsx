@@ -1,18 +1,20 @@
 type LogoProps = {
   text?: string;
+  className?: string;
 };
 
 const Logo = ({
-  text = "ScholarSwap",
+  text,
+  className = "",
 }: LogoProps) => {
   return (
-    <div className="logo">
+    <div className={`logo ${className}`}>
       <img
         src="/images/logo.png"
-        alt="logo"
+        alt="ScholarSwap Logo"
       />
 
-      <span>{text}</span>
+      {text && <span>{text}</span>}
     </div>
   );
 };

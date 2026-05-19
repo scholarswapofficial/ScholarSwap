@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
-import {  RiSearchLine,
+import {
+  RiSearchLine,
   RiFilter3Line,
   RiAddLine,
   RiEyeLine,
@@ -13,190 +14,208 @@ import {  RiSearchLine,
 
 import { ADMIN_LIBRARY_BOOKS } from "@/constant/admin/adminLibTable";
 
+import LibModal from "@/components/organisms/LibModal/LibModal";
+
 import "@/styles/sections/admin/adminLibTable.scss";
 
 const AdminLibTable = () => {
+  const [openModal, setOpenModal] = useState(false);
+
   return (
-    <section className="admin-lib-table">
-      {/* ------------------------------------------------------------------ */}
-      {/*                               HEADER                               */}
-      {/* ------------------------------------------------------------------ */}
+    <>
+      {/* ============================ MODAL ============================ */}
 
-      <div className="admin-lib-table__header">
-        <div>
-          <h1>Library</h1>
+      <LibModal
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+      />
 
-          <p>
-            Manage books, subjects and study materials.
-          </p>
-        </div>
+      {/* ============================ TABLE ============================ */}
 
-        <button className="admin-lib-table__add-btn">
-          <RiAddLine />
+      <section className="admin-lib-table">
+        {/* ------------------------------------------------------------------ */}
+        {/*                               HEADER                               */}
+        {/* ------------------------------------------------------------------ */}
 
-          <span>Add New Book</span>
-        </button>
-      </div>
+        <div className="admin-lib-table__header">
+          <div>
+            <h1>Library</h1>
 
-      {/* ------------------------------------------------------------------ */}
-      {/*                               FILTERS                              */}
-      {/* ------------------------------------------------------------------ */}
+            <p>
+              Manage books, subjects and study materials.
+            </p>
+          </div>
 
-      <div className="admin-lib-table__filters">
-        {/* ---------------------------- SEARCH --------------------------- */}
+          <button
+            className="admin-lib-table__add-btn"
+            onClick={() => setOpenModal(true)}
+          >
+            <RiAddLine />
 
-        <div className="admin-lib-table__search">
-          <RiSearchLine />
-
-          <input
-            type="text"
-            placeholder="Search books by title, author or subject..."
-          />
-        </div>
-
-        {/* ---------------------------- ACTIONS -------------------------- */}
-
-        <div className="admin-lib-table__filter-actions">
-          <button>
-            <RiFilter3Line />
-
-            Filters
+            <span>Add New Book</span>
           </button>
-
-          <select>
-            <option>All Subjects</option>
-            <option>DBMS</option>
-            <option>OS</option>
-            <option>DSA</option>
-          </select>
-
-          <select>
-            <option>Sort: Newest</option>
-            <option>Highest Rated</option>
-            <option>Lowest Price</option>
-          </select>
         </div>
-      </div>
 
-      {/* ------------------------------------------------------------------ */}
-      {/*                                TABLE                               */}
-      {/* ------------------------------------------------------------------ */}
+        {/* ------------------------------------------------------------------ */}
+        {/*                               FILTERS                              */}
+        {/* ------------------------------------------------------------------ */}
 
-      <div className="admin-lib-table__table-wrapper">
-        <table className="admin-lib-table__table">
-          <thead>
-            <tr>
-              <th>Book</th>
-              <th>Subject</th>
-              <th>Semester</th>
-              <th>Rating</th>
-              <th>Price</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
+        <div className="admin-lib-table__filters">
+          {/* ---------------------------- SEARCH --------------------------- */}
 
-          <tbody>
-            {ADMIN_LIBRARY_BOOKS.map((book) => (
-              <tr key={book.id}>
-                {/* -------------------------- BOOK ---------------------- */}
+          <div className="admin-lib-table__search">
+            <RiSearchLine />
 
-                <td>
-                  <div className="admin-lib-table__book">
-                    <div className="admin-lib-table__book-content">
-                      <div className="admin-lib-table__tags">
-                        <span className="subject">
-                          {book.subject}
-                        </span>
+            <input
+              type="text"
+              placeholder="Search books by title, author or subject..."
+            />
+          </div>
 
-                        <span className="type">
-                          {book.type}
-                        </span>
-                      </div>
+          {/* ---------------------------- ACTIONS -------------------------- */}
 
-                      <h3>{book.title}</h3>
+          <div className="admin-lib-table__filter-actions">
+            <button>
+              <RiFilter3Line />
 
-                      <h4>{book.author}</h4>
+              Filters
+            </button>
 
-                      <p>
-                        {book.pages} pages •{" "}
-                        {book.language}
-                      </p>
-                    </div>
-                  </div>
-                </td>
+            <select>
+              <option>All Subjects</option>
+              <option>DBMS</option>
+              <option>OS</option>
+              <option>DSA</option>
+            </select>
 
-                {/* ------------------------ SUBJECT --------------------- */}
+            <select>
+              <option>Sort: Newest</option>
+              <option>Highest Rated</option>
+              <option>Lowest Price</option>
+            </select>
+          </div>
+        </div>
 
-                <td>
-                  <span className="subject-pill">
-                    {book.subject}
-                  </span>
-                </td>
+        {/* ------------------------------------------------------------------ */}
+        {/*                                TABLE                               */}
+        {/* ------------------------------------------------------------------ */}
 
-                {/* ----------------------- SEMESTER --------------------- */}
-
-                <td>
-                  <span className="semester-pill">
-                    {book.semester}
-                  </span>
-                </td>
-
-                {/* ------------------------ RATING ---------------------- */}
-
-                <td>
-                  <div className="admin-lib-table__rating">
-                    <RiStarFill />
-
-                    <span>
-                      {book.rating} ({book.reviews})
-                    </span>
-                  </div>
-                </td>
-
-                {/* ------------------------- PRICE ---------------------- */}
-
-                <td>
-                  <strong>₹{book.price}</strong>
-                </td>
-
-                {/* ------------------------ ACTIONS --------------------- */}
-
-                <td>
-                  <div className="admin-lib-table__actions">
-                    <button>
-                      <RiEditLine />
-                    </button>
-
-                    <button>
-                      <RiEyeLine />
-                    </button>
-
-                    <button className="delete">
-                      <RiDeleteBin6Line />
-                    </button>
-                  </div>
-                </td>
+        <div className="admin-lib-table__table-wrapper">
+          <table className="admin-lib-table__table">
+            <thead>
+              <tr>
+                <th>Book</th>
+                <th>Subject</th>
+                <th>Semester</th>
+                <th>Rating</th>
+                <th>Price</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
 
-      {/* ------------------------------------------------------------------ */}
-      {/*                              PAGINATION                             */}
-      {/* ------------------------------------------------------------------ */}
+            <tbody>
+              {ADMIN_LIBRARY_BOOKS.map((book) => (
+                <tr key={book.id}>
+                  {/* -------------------------- BOOK ---------------------- */}
 
-      <div className="admin-lib-table__pagination">
-        <p>Showing 1 to 4 of 248 books</p>
+                  <td>
+                    <div className="admin-lib-table__book">
+                      <div className="admin-lib-table__book-content">
+                        <div className="admin-lib-table__tags">
+                          <span className="subject">
+                            {book.subject}
+                          </span>
 
-        <div className="admin-lib-table__pages">
-          <button className="active">1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>4</button>
+                          <span className="type">
+                            {book.type}
+                          </span>
+                        </div>
+
+                        <h3>{book.title}</h3>
+
+                        <h4>{book.author}</h4>
+
+                        <p>
+                          {book.pages} pages •{" "}
+                          {book.language}
+                        </p>
+                      </div>
+                    </div>
+                  </td>
+
+                  {/* ------------------------ SUBJECT --------------------- */}
+
+                  <td>
+                    <span className="subject-pill">
+                      {book.subject}
+                    </span>
+                  </td>
+
+                  {/* ----------------------- SEMESTER --------------------- */}
+
+                  <td>
+                    <span className="semester-pill">
+                      {book.semester}
+                    </span>
+                  </td>
+
+                  {/* ------------------------ RATING ---------------------- */}
+
+                  <td>
+                    <div className="admin-lib-table__rating">
+                      <RiStarFill />
+
+                      <span>
+                        {book.rating} ({book.reviews})
+                      </span>
+                    </div>
+                  </td>
+
+                  {/* ------------------------- PRICE ---------------------- */}
+
+                  <td>
+                    <strong>₹{book.price}</strong>
+                  </td>
+
+                  {/* ------------------------ ACTIONS --------------------- */}
+
+                  <td>
+                    <div className="admin-lib-table__actions">
+                      <button>
+                        <RiEditLine />
+                      </button>
+
+                      <button>
+                        <RiEyeLine />
+                      </button>
+
+                      <button className="delete">
+                        <RiDeleteBin6Line />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </div>
-    </section>
+
+        {/* ------------------------------------------------------------------ */}
+        {/*                              PAGINATION                             */}
+        {/* ------------------------------------------------------------------ */}
+
+        <div className="admin-lib-table__pagination">
+          <p>Showing 1 to 4 of 248 books</p>
+
+          <div className="admin-lib-table__pages">
+            <button className="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 

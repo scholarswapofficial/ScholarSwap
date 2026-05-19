@@ -1,34 +1,79 @@
 import Logo from "@/components/atoms/Logo/Logo";
-import { CheckCircle } from "lucide-react";
+import {  CheckCircle,  GraduationCap,} from "lucide-react";
 import { INTRO_TEXT } from "@/constant/introText";
-
-import styles from "@/styles/sections/auth/auth.module.scss";
+import styles from "@/styles/sections/auth/intro.module.scss";
 
 const IntroContent = () => {
   return (
     <div className={styles["intro-content"]}>
-      <Logo />
-
-      <div className={styles["intro-illustration"]}>
-        <img src="/images/auth-illustration.png" alt="learning" />
+      <div className={styles["intro-badge"]}>
+        <GraduationCap size={16} />
+        <span>{INTRO_TEXT.badge}</span>
       </div>
 
-      <h1 className={styles["intro-heading"]}>
-        {INTRO_TEXT.heading}
-      </h1>
+      <div className={styles["intro-heading-wrapper"]}>
+        <h1 className={styles["intro-heading"]}>
+          <div className={styles["heading-row"]}>
+            <span>
+              {INTRO_TEXT.heading.first}
+            </span>
+            <span>
+              {INTRO_TEXT.heading.second}
+            </span>
+          </div>
+
+          <div className={styles["heading-row"]}>
+            <span className={  styles["highlight-text"]}>
+              {INTRO_TEXT.heading.highlight}
+            </span>
+            <span>
+              {INTRO_TEXT.heading.last}
+            </span>
+          </div>
+        </h1>
+      </div>
 
       <p className={styles["intro-subheading"]}>
         {INTRO_TEXT.subheading}
       </p>
 
-      <ul className={styles["intro-features"]}>
-        {INTRO_TEXT.features.map((item, index) => (
-          <li key={index}>
-            <CheckCircle className={styles["tick-icon"]} />
-            {item}
-          </li>
-        ))}
-      </ul>
+      <div className={styles["intro-features-grid"]}>
+        {INTRO_TEXT.features.map(
+          (item, index) => (
+            <div key={index}
+              className={   styles["feature-card"]}>
+              <CheckCircle
+                className={  styles["tick-icon"]}
+              />
+
+              <span>{item}</span>
+            </div>
+          )
+        )}
+      </div>
+
+      <div className={styles["intro-stats"]}>
+        {INTRO_TEXT.stats.map(
+          (item, index) => (
+            <div  key={index}
+              className={  styles["stat-card"]}>
+              <h3>{item.value}</h3>
+              <p>{item.label}</p>
+            </div>
+          )
+        )}
+      </div>
+
+      <div className={styles["intro-trust"]}>
+          <div className={styles["avatar-group"]}>
+          <div  className={styles["avatar"]}></div>
+          <div   className={styles["avatar"]}></div>
+          <div   className={styles["avatar"]}></div>
+          <div   className={styles["avatar"]}></div>
+        </div>
+
+        <p>{INTRO_TEXT.trustText}</p>
+      </div>
     </div>
   );
 };

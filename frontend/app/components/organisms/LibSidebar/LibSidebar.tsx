@@ -2,12 +2,7 @@
 
 import { usePathname } from "next/navigation";
 
-import {
-  FiChevronLeft,
-  FiChevronRight,
-  FiX,
-} from "react-icons/fi";
-
+import {  FiChevronLeft,  FiChevronRight,  FiX,} from "react-icons/fi";
 import "./LibSidebar.scss";
 
 import Logo from "@/components/atoms/Logo/Logo";
@@ -62,7 +57,7 @@ const LibSidebar = ({
         {/* BRAND / TOP */}
         <div className="lib-sidebar__brand">
           {!collapsed && (
-            <Logo text="ScholarSwap" />
+            <Logo />
           )}
 
           {/* DESKTOP TOGGLE */}

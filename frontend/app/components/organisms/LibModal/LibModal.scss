@@ -1,0 +1,282 @@
+/* components/organisms/LibModal/LibModal.scss */
+
+.lib-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 30, 0.45);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 24px;
+}
+
+.lib-modal {
+  width: 100%;
+  max-width: 980px;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 32px;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.12);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 28px;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #081028;
+      margin-bottom: 6px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #6b7280;
+    }
+  }
+
+  &__close {
+    width: 42px;
+    height: 42px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: 0.2s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: #f3f4f6;
+    }
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 28px;
+  }
+
+  &__cover {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    label {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #111827;
+    }
+  }
+
+  &__upload {
+    border: 2px dashed #d8deea;
+    border-radius: 22px;
+    min-height: 260px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    text-align: center;
+    padding: 20px;
+
+    svg {
+      color: #6c63ff;
+    }
+
+    h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    span {
+      font-size: 0.88rem;
+      color: #6b7280;
+    }
+
+    small {
+      color: #9ca3af;
+      font-size: 0.8rem;
+    }
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &.full {
+      grid-column: span 2;
+    }
+
+    label {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid #dbe1ea;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: 0.2s ease;
+      background: #fff;
+
+      &:focus {
+        border-color: #6c63ff;
+      }
+    }
+
+    textarea {
+      resize: none;
+    }
+  }
+
+  &__select {
+    width: 100%;
+    height: 52px;
+    border: 1px solid #dbe1ea;
+    border-radius: 16px;
+    padding: 0 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    &:hover {
+      border-color: #c8cfdb;
+    }
+
+    span {
+      color: #6b7280;
+      font-size: 0.94rem;
+    }
+
+    svg {
+      color: #6b7280;
+    }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    svg {
+      fill: #f59e0b;
+      color: #f59e0b;
+    }
+  }
+
+  &__count {
+    text-align: right;
+    color: #9ca3af;
+    font-size: 0.78rem;
+  }
+
+  &__footer {
+    margin-top: 32px;
+
+    display: flex;
+    justify-content: flex-end;
+    gap: 14px;
+  }
+
+  &__cancel {
+    height: 52px;
+    padding: 0 26px;
+    border-radius: 16px;
+    border: 1px solid #dbe1ea;
+    background: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  &__submit {
+    height: 52px;
+    padding: 0 28px;
+    border-radius: 16px;
+    border: none;
+    background: linear-gradient(
+      135deg,
+      #6c63ff,
+      #7c5cff
+    );
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 900px) {
+  .lib-modal {
+    padding: 24px;
+
+    &__body {
+      grid-template-columns: 1fr;
+    }
+
+    &__form {
+      grid-template-columns: 1fr;
+    }
+
+    &__field {
+      &.full {
+        grid-column: span 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .lib-modal-overlay {
+    padding: 14px;
+  }
+
+  .lib-modal {
+    border-radius: 22px;
+    padding: 20px;
+
+    &__header {
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__footer {
+      flex-direction: column;
+    }
+
+    &__cancel,
+    &__submit {
+      width: 100%;
+    }
+  }
+}

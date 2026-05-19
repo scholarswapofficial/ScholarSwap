@@ -1,9 +1,42 @@
 export const INTRO_TEXT = {
-  heading: "Learn. Practice. Earn.",
-  subheading: "Your one-stop platform for courses, PYQs, and student marketplace.",
+  badge: "The Student Learning Network",
+
+  heading: {
+    first: "Learn.",
+    second: "Share.",
+    highlight: "Grow",
+    last: "Together.",
+  },
+
+  subheading:
+    "Join thousands of students learning, sharing notes, solving doubts and growing together.",
+
   features: [
-    "Access high-quality courses",
-    "Practice previous year questions",
-    "Buy & sell study resources"
-  ]
+    "Upload & Share Notes",
+    "PYQ Discussions",
+    "Ask & Answer Doubts",
+    "Student Marketplace",
+  ],
+
+  stats: [
+    {
+      value: "10K+",
+      label: "Active Students",
+    },
+    {
+      value: "12K+",
+      label: "Notes Shared",
+    },
+    {
+      value: "15K+",
+      label: "Questions Solved",
+    },
+    {
+      value: "300+",
+      label: "Courses",
+    },
+  ],
+
+  trustText:
+    "Trusted by 10,000+ students from top colleges across India",
 };

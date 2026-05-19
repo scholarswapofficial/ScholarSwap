@@ -1,118 +1,295 @@
-/* ================== INTRO SECTION ================== */
+/* =========================================================
+   INTRO SECTION
+========================================================= */
 
 .intro-section {
-  flex: 1.2;
-  background: #f5f7fb;
-
+  flex: 1;
   display: flex;
-  align-items: center;         
-  justify-content: flex-start;
-
-  padding: 40px 60px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 60px;
+  background: #f5f7fb;
+  position: relative;
+  overflow: hidden;
 }
 
-/* ================== CONTENT ================== */
+/* =========================================================
+   INTRO CONTENT
+========================================================= */
 
 .intro-content {
+  width: 100%;
+  max-width: 620px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  max-width: 560px;      
-  width: 100%;
-
-  gap: 28px;    
+  gap: 20px;
+  position: relative;
+  z-index: 2;
 }
 
-/* ================== LOGO ================== */
+/* =========================================================
+   BADGE
+========================================================= */
 
-.logo {
-  display: flex;
+.intro-badge {
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
-
-  img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-  }
-
-  span {
-    font-size: 22px;
-    font-weight: 700;
-  }
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+  font-size: 14px;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
 }
 
-/* ================== IMAGE ================== */
+/* =========================================================
+   HEADING
+========================================================= */
 
-.intro-illustration {
+.intro-heading-wrapper {
   width: 100%;
-  display: flex;
-  justify-content: center;  
-
-  img {
-    width: 100%;
-    max-width: 460px;       
-    height: auto;
-  }
 }
-
-/* ================== TEXT ================== */
 
 .intro-heading {
-  font-size: 44px;             
-  font-weight: 700;
-  line-height: 1.25;
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -2px;
+  color: #0f172a;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 16px;
 
-  width: 100%;
-  text-align: center;
+  span {
+    display: inline;
+  }
 }
+
+.highlight-text {
+  background: linear-gradient(135deg, #6366f1,   #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   SUBHEADING
+========================================================= */
 
 .intro-subheading {
-  font-size: 16px;
-  color: #6b7280;
-  line-height: 1.6;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #64748b;
+  max-width: 540px;
 }
 
-/* ================== FEATURES ================== */
+/* =========================================================
+   FEATURES GRID
+========================================================= */
 
-.intro-features {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.intro-features-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
 
-  li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
+.feature-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+  span {
     font-size: 15px;
-    color: #374151;
+    font-weight: 600;
+    color: #1e293b;
+  }
 
-    margin-bottom: 10px;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px
+      rgba(99, 102, 241, 0.08);
   }
 }
 
 .tick-icon {
-  color: #22c55e;
-  width: 20px;              
+  width: 20px;
   height: 20px;
+  color: #6366f1;
   flex-shrink: 0;
 }
 
-/* ================== FINAL TAGLINE ================== */
+/* =========================================================
+   STATS
+========================================================= */
 
-.intro-tagline {
-  font-size: 24px;
-  font-weight: 500;
-  color: #111827;
-  margin-top: 10px;
+.intro-stats {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
 }
 
-/* ================== RESPONSIVE ================== */
+.stat-card {
+  padding: 24px 18px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #e2e8f0;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px      rgba(15, 23, 42, 0.06);
+  }
+
+  h3 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-size: 14px;
+    color: #64748b;
+  }
+}
+
+/* =========================================================
+   TRUST SECTION
+========================================================= */
+
+.intro-trust {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 8px;
+
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #64748b;
+    max-width: 340px;
+  }
+}
+
+.avatar-group {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(    135deg,  #6366f1, #8b5cf6
+  );
+
+  border: 3px solid #ffffff;
+  margin-left: -12px;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+  .intro-heading {
+    font-size: 60px;
+  }
+
+  .intro-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .intro-section {
+    padding: 50px 30px;
+  }
+
+  .intro-heading {
+    font-size: 56px;
+  }
+}
 
 @media (max-width: 768px) {
   .intro-section {
-    display: none;
+    padding: 40px 24px;
+  }
+
+  .intro-content {
+    max-width: 100%;
+  }
+
+  .intro-heading {
+    font-size: 44px;
+    line-height: 1.08;
+  }
+
+  .intro-subheading {
+    font-size: 17px;
+  }
+
+  .intro-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-section {
+    padding: 32px 18px;
+  }
+
+  .intro-heading {
+    font-size: 36px;
+
+    letter-spacing: -1px;
+  }
+
+  .intro-subheading {
+    font-size: 15px;
+  }
+
+  .feature-card {
+    padding: 16px;
+  }
+
+  .intro-stats {
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 18px 14px;
+
+    h3 {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .intro-trust {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 }

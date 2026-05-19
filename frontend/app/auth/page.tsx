@@ -6,9 +6,12 @@ import styles from "@/styles/sections/auth/auth.module.scss";
 
 const AuthPage = () => {
   return (
-    <div className={styles["auth-container"]}>
-      <IntroSection />
-      <AuthFormSection />
+    <div className={styles["auth-page"]}>
+      <main className={styles["auth-container"]}>
+        <IntroSection />
+        <AuthFormSection />
+      </main>
+
       <FooterSection />
     </div>
   );
