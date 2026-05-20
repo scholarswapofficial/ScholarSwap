@@ -76,3 +76,54 @@ export const markLectureWatched = async (
 
   return progress;
 };
+
+
+
+// ✅ Get progress for a single course
+export const getCourseProgressService = async (
+  userId: string,
+  courseId: string
+) => {
+  const progress = await Progress.findOne({ userId, courseId });
+
+  if (!progress) {
+    return {
+      completionPercentage: 0,
+      watchedLectures: 0,
+      totalLectures: 0,
+      isCompleted: false,
+    };
+  }
+
+  const totalLectures = await Lecture.countDocuments({ courseId });
+
+  return {
+    courseId,
+    watchedLectures: progress.watchedLectures.length,
+    totalLectures,
+    completionPercentage: progress.completionPercentage,
+    isCompleted: progress.isCompleted,
+  };
+};
+
+// ✅ Get overall progress (dashboard)
+export const getOverallProgressService = async (userId: string) => {
+  const progresses = await Progress.find({ userId });
+
+  const totalCourses = progresses.length;
+
+  const completedCourses = progresses.filter(
+    (p) => p.isCompleted
+  ).length;
+
+  const totalLecturesWatched = progresses.reduce(
+    (acc, curr) => acc + curr.watchedLectures.length,
+    0
+  );
+
+  return {
+    totalCourses,
+    completedCourses,
+    totalLecturesWatched,
+  };
+};

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { markLectureWatched } from "./progress.service";
+import * as service  from "./progress.service";
 
 export const updateProgress = async (req: any, res: Response) => {
   try {
@@ -8,7 +8,7 @@ export const updateProgress = async (req: any, res: Response) => {
     const userId = req.user.id;
     const userName = req.user.name;
 
-    const progress = await markLectureWatched(
+    const progress = await  service.markLectureWatched(
       userId,
       courseId,
       lectureId,
@@ -16,6 +16,38 @@ export const updateProgress = async (req: any, res: Response) => {
     );
 
     res.json(progress);
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+
+
+// ✅ Course Progress
+export const getCourseProgress = async (req: any, res: Response) => {
+  try {
+    const userId = req.user.id;
+    const { courseId } = req.params;
+
+    const data = await service.getCourseProgressService(
+      userId,
+      courseId
+    );
+
+    res.json(data);
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// ✅ Overall Progress
+export const getOverallProgress = async (req: any, res: Response) => {
+  try {
+    const userId = req.user.id;
+
+    const data = await service.getOverallProgressService(userId);
+
+    res.json(data);
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }
