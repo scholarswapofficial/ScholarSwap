@@ -1,5 +1,4 @@
 import TrendingTopics from "@/components/organisms/TrendingTopics/TrendingTopics";
-import UpcomingEvents from "@/components/organisms/UpcomingEvents/UpcomingEvents";
 import PeopleYouMayKnow from "@/components/organisms/PeopleYouMayKnow/PeopleYouMayKnow";
 import MarketplacePreview from "@/components/organisms/MarketplacePreview/MarketplacePreview";
 
@@ -10,9 +9,6 @@ const RightPanelSection = () => {
     <div className={styles.rightpanel}>
       
       <TrendingTopics />
-
-      <UpcomingEvents />
-
       <PeopleYouMayKnow />
       <MarketplacePreview /> 
 
