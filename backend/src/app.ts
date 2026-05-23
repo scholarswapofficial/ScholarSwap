@@ -8,6 +8,7 @@ import libraryRoutes from "./routes/library.routes";
 import courseRoutes from "./routes/course.route";
 import lectureRoutes from "./routes/lecture.route";
 import certificateRoutes from "./routes/certificate.routes";
+import postRoutes from "./routes/post.route";
 import { swaggerSpec } from "./config/swagger";
 
 const app = express();
@@ -23,7 +24,7 @@ app.get("/welcome", (req, res) => {
 });
 
 // =============================
-// 🔐 AUTH ROUTES
+//  ROUTES
 // =============================
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
@@ -31,6 +32,7 @@ app.use("/api/library", libraryRoutes);
 app.use("/api/course", courseRoutes);
 app.use("/api/lecture", lectureRoutes);
 app.use("/api/certificate", certificateRoutes);
+app.use("/api/post", postRoutes);
 
 
 // =============================

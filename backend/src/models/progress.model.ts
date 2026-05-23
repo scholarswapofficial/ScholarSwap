@@ -7,7 +7,7 @@ export interface IProgress extends Document {
   completionPercentage: number;
   isCompleted: boolean;
 }
-const progressSchema = new Schema(
+const progressSchema = new Schema<IProgress>(
   {
     userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
     courseId: { type: Schema.Types.ObjectId, ref: "Course", required: true },
