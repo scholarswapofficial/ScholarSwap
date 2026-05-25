@@ -9,6 +9,7 @@ import courseRoutes from "./routes/course.route";
 import lectureRoutes from "./routes/lecture.route";
 import certificateRoutes from "./routes/certificate.routes";
 import postRoutes from "./routes/post.route";
+import eventRoutes from "./routes/event.route";
 import { swaggerSpec } from "./config/swagger";
 
 const app = express();
@@ -33,6 +34,7 @@ app.use("/api/course", courseRoutes);
 app.use("/api/lecture", lectureRoutes);
 app.use("/api/certificate", certificateRoutes);
 app.use("/api/post", postRoutes);
+app.use("/api/event", eventRoutes);
 
 
 // =============================

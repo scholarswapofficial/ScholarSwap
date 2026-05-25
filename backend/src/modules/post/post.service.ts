@@ -25,8 +25,6 @@ export const createPost = async (data: CreatePostInput): Promise<IPost> => {
   }
 };
 
-
-
 interface GetPostsInput {
   page: number;
   limit: number;
