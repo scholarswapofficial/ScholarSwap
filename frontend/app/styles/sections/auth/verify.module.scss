@@ -1,0 +1,384 @@
+.verifyPage {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: #f5f7ff;
+
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.18;
+  }
+
+  &::before {
+    top: -120px;
+    left: -120px;
+
+    background: #7c6cff;
+  }
+
+  &::after {
+    right: -120px;
+    bottom: -120px;
+
+    background: #5b8cff;
+  }
+}
+
+.verifyCard {
+  position: relative;
+
+  width: 100%;
+  max-width: 560px;
+
+  background: rgba(255, 255, 255, 0.88);
+
+  backdrop-filter: blur(12px);
+
+  border-radius: 34px;
+
+  padding: 52px 42px;
+
+  border: 1px solid #ebeefe;
+
+  box-shadow:
+    0 10px 30px
+      rgba(0, 0, 0, 0.04),
+    0 30px 80px
+      rgba(108, 99, 255, 0.12);
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+.topLine {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 90px;
+  height: 5px;
+
+  border-radius: 999px;
+}
+
+.loading .topLine {
+  background: #6c63ff;
+}
+
+.success .topLine {
+  background: #22c55e;
+}
+
+.error .topLine {
+  background: #ef4444;
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 34px;
+}
+
+/* LOADER */
+
+.loader {
+  position: relative;
+
+  width: 130px;
+  height: 130px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loaderTrack {
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  border-radius: 50%;
+
+  border: 7px solid #ecebff;
+}
+
+.loaderSpin {
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  border-radius: 50%;
+
+  border: 7px solid transparent;
+
+  border-top-color: #6c63ff;
+  border-right-color: #6c63ff;
+
+  animation: spin 1s linear infinite;
+}
+
+.loaderCenter {
+  width: 72px;
+  height: 72px;
+
+  border-radius: 50%;
+
+  background: #f5f3ff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #6c63ff;
+}
+
+.statusIcon {
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.successIcon {
+  background: #ecfdf3;
+  color: #22c55e;
+}
+
+.errorIcon {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+/* TEXT */
+
+.title {
+  font-size: 48px;
+
+  line-height: 1.1;
+
+  font-weight: 800;
+
+  letter-spacing: -2px;
+
+  color: #0f172a;
+
+  margin-bottom: 18px;
+}
+
+.message {
+  font-size: 18px;
+
+  line-height: 1.7;
+
+  color: #64748b;
+
+  max-width: 420px;
+
+  margin:
+    0 auto
+    32px auto;
+}
+
+/* BOX */
+
+.infoBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 18px 20px;
+
+  border-radius: 18px;
+
+  background: #f8f7ff;
+
+  border: 1px solid #ebe9ff;
+
+  color: #5b5bd6;
+
+  font-size: 15px;
+
+  margin-bottom: 26px;
+}
+
+.successBox {
+  flex-direction: column;
+
+  background: #f0fdf4;
+
+  border-color: #d8f5df;
+
+  color: #15803d;
+}
+
+.errorBox {
+  background: #fef2f2;
+
+  border-color: #ffd8d8;
+
+  color: #dc2626;
+
+  margin-bottom: 20px;
+}
+
+/* PROGRESS */
+
+.progressWrapper {
+  width: 100%;
+  height: 8px;
+
+  border-radius: 999px;
+
+  background: #dcfce7;
+
+  overflow: hidden;
+}
+
+.progressBar {
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    #22c55e,
+    #16a34a
+  );
+
+  transform-origin: left;
+
+  animation: progress 2.5s linear;
+}
+
+/* BUTTON */
+
+.backButton {
+  width: 100%;
+
+  height: 58px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 18px;
+
+  background: linear-gradient(
+    135deg,
+    #6c63ff,
+    #8b5cf6
+  );
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.backButton:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px
+      rgba(108, 99, 255, 0.28);
+}
+
+/* FOOTER */
+
+.footer {
+  margin-top: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  color: #94a3b8;
+
+  font-size: 13px;
+}
+
+/* ANIMATIONS */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+  .verifyCard {
+    padding: 40px 24px;
+
+    border-radius: 28px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .message {
+    font-size: 16px;
+  }
+
+  .loader,
+  .loaderTrack,
+  .loaderSpin {
+    width: 110px;
+    height: 110px;
+  }
+
+  .statusIcon {
+    width: 100px;
+    height: 100px;
+  }
+}
