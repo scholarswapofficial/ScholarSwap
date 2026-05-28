@@ -4,6 +4,7 @@ import FooterSection from "@/sections/auth/FooterSection";
 
 import styles from "@/styles/sections/auth/auth.module.scss";
 
+
 const AuthPage = () => {
   return (
     <div className={styles["auth-page"]}>
