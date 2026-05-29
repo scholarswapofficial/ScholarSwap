@@ -53,16 +53,6 @@ const FeedTabs = () => {
 
         <div
           className={`${styles["feed-navbar__item"]} ${
-            isActive("/messages") ? styles["active"] : ""
-          }`}
-          onClick={() => router.push("/messages")}
-        >
-          <FaCommentDots />
-          <span>Messaging</span>
-        </div>
-
-        <div
-          className={`${styles["feed-navbar__item"]} ${
             isActive("/notification") ? styles["active"] : ""
           }`}
           onClick={() => router.push("/notification")}
