@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import PostHeader from "@/components/molecules/PostHeader/PostHeader";
 import PostActions from "@/components/molecules/PostActions/PostActions";
 
@@ -32,58 +34,124 @@ type PostCardProps = {
   post: Post;
 };
 
-const PostCard = ({ post }: PostCardProps) => {
-  const authorName = post.author?.name || "Unknown";
-  const authorTime = post.author?.time || "";
-  const authorAvatar = post.author?.avatar;
+const PostCard = ({
+  post,
+}: PostCardProps) => {
+  const [showCommentBox, setShowCommentBox] =
+    useState(false);
+
+  const [comment, setComment] =
+    useState("");
+
+  const authorName =
+    post.author?.name || "Unknown";
+
+  const authorTime =
+    post.author?.time || "";
+
+  const authorAvatar =
+    post.author?.avatar;
+
+  const handleCommentPost = () => {
+    if (!comment.trim()) return;
+
+    console.log(
+      "Comment:",
+      comment
+    );
+
+    setComment("");
+    setShowCommentBox(false);
+  };
 
   return (
-    <div className={styles["post-card"]}>
-      
+    <div
+      className={styles["post-card"]}
+    >
       {/* Header */}
       <PostHeader
         user={authorName}
         time={authorTime}
-        avatar={authorAvatar} // make sure PostHeader accepts this
+        avatar={authorAvatar}
       />
 
       {/* Content */}
-      <div className={styles["post-card__content"]}>
-        
+      <div
+        className={
+          styles["post-card__content"]
+        }
+      >
         {post.content?.title && (
-          <h3 className={styles["post-card__title"]}>
+          <h3
+            className={
+              styles[
+                "post-card__title"
+              ]
+            }
+          >
             {post.content.title}
           </h3>
         )}
 
-        <p className={styles["post-card__description"]}>
+        <p
+          className={
+            styles[
+              "post-card__description"
+            ]
+          }
+        >
           {post.content.description}
         </p>
       </div>
 
       {/* Tags */}
       {post.tags?.length ? (
-        <div className={styles["post-card__tags"]}>
-          {post.tags.map((tag, index) => (
-            <span key={index} className={styles["post-card__tag"]}>
-              #{tag}
-            </span>
-          ))}
+        <div
+          className={
+            styles["post-card__tags"]
+          }
+        >
+          {post.tags.map(
+            (tag, index) => (
+              <span
+                key={index}
+                className={
+                  styles[
+                    "post-card__tag"
+                  ]
+                }
+              >
+                #{tag}
+              </span>
+            )
+          )}
         </div>
       ) : null}
 
-      {/* Media Preview */}
+      {/* Media */}
       {post.media?.url && (
-        <div className={styles["post-card__media"]}>
+        <div
+          className={
+            styles["post-card__media"]
+          }
+        >
           <img
             src={post.media.url}
             alt="post media"
             onError={(e) => {
-              e.currentTarget.style.display = "none";
+              e.currentTarget.style.display =
+                "none";
             }}
           />
+
           {post.media.label && (
-            <span className={styles["post-card__media-label"]}>
+            <span
+              className={
+                styles[
+                  "post-card__media-label"
+                ]
+              }
+            >
               {post.media.label}
             </span>
           )}
@@ -91,8 +159,48 @@ const PostCard = ({ post }: PostCardProps) => {
       )}
 
       {/* Actions */}
-      <PostActions stats={post.stats} />
+      <PostActions
+        stats={post.stats}
+        onCommentClick={() =>
+          setShowCommentBox(
+            !showCommentBox
+          )
+        }
+      />
 
+      {/* Comment Slider */}
+      {showCommentBox && (
+        <div
+          className={
+            styles[
+              "post-card__comment-box"
+            ]
+          }
+        >
+          <textarea
+            placeholder="Write a comment..."
+            value={comment}
+            onChange={(e) =>
+              setComment(
+                e.target.value
+              )
+            }
+          />
+
+          <button
+            className={
+              styles[
+                "post-card__comment-post"
+              ]
+            }
+            onClick={
+              handleCommentPost
+            }
+          >
+            Post
+          </button>
+        </div>
+      )}
     </div>
   );
 };

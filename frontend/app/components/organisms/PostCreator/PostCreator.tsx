@@ -21,12 +21,11 @@ const PostCreator = () => {
       
       {/* TOP */}
       <div className={styles["post-creator__top"]}>
-        <div className={styles["post-creator__avatar"]}>U</div>
 
         <input
           className={styles["post-creator__input"]}
           type="text"
-          placeholder="Share notes, ask doubts, or post something..."
+          placeholder="Share Your ideas, Thoughts and Ask Questions..."
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
@@ -35,24 +34,7 @@ const PostCreator = () => {
       {/* ACTIONS */}
       <div className={styles["post-creator__actions"]}>
         
-        <div className={styles["post-creator__left-actions"]}>
-          
-          <button className={`${styles["post-creator__btn"]} ${styles["upload"]}`}>
-            <FaRegFileAlt />
-            Upload Notes
-          </button>
-
-          <button className={`${styles["post-creator__btn"]} ${styles["question"]}`}>
-            <FaQuestionCircle />
-            Ask Question
-          </button>
-
-          <button className={`${styles["post-creator__btn"]} ${styles["poll"]}`}>
-            <MdPoll />
-            Create Poll
-          </button>
-
-        </div>
+        
 
         <button
           onClick={handleSubmit}

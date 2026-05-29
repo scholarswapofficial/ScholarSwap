@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { FaHeart, FaComment, FaBookmark } from "react-icons/fa";
+import {
+  FaHeart,
+  FaComment,
+  FaBookmark,
+} from "react-icons/fa";
 
 import { feedActionText } from "@/constant/feed/uiText";
 import styles from "@/styles/sections/home/feed.module.scss";
@@ -10,11 +14,19 @@ type PostActionsProps = {
     comments: number;
     views: number;
   };
+
+  onCommentClick?: () => void;
 };
 
-const PostActions = ({ stats }: PostActionsProps) => {
-  const [liked, setLiked] = useState(false);
-  const [saved, setSaved] = useState(false);
+const PostActions = ({
+  stats,
+  onCommentClick,
+}: PostActionsProps) => {
+  const [liked, setLiked] =
+    useState(false);
+
+  const [saved, setSaved] =
+    useState(false);
 
   const handleLike = () => {
     setLiked((prev) => !prev);
@@ -25,38 +37,85 @@ const PostActions = ({ stats }: PostActionsProps) => {
   };
 
   return (
-    <div className={styles["post-actions"]}>
-      
+    <div
+      className={
+        styles["post-actions"]
+      }
+    >
       {/* LIKE */}
       <div
-        className={styles["post-actions__item"]}
+        className={
+          styles[
+            "post-actions__item"
+          ]
+        }
         onClick={handleLike}
       >
-        <FaHeart color={liked ? "#ef4444" : ""} />
+        <FaHeart
+          color={
+            liked
+              ? "#ef4444"
+              : ""
+          }
+        />
+
         <span>
           {feedActionText.like}
-          {stats?.likes !== undefined && ` (${stats.likes + (liked ? 1 : 0)})`}
+
+          {stats?.likes !==
+            undefined &&
+            ` (${
+              stats.likes +
+              (liked ? 1 : 0)
+            })`}
         </span>
       </div>
 
       {/* COMMENT */}
-      <div className={styles["post-actions__item"]}>
+      <div
+        className={
+          styles[
+            "post-actions__item"
+          ]
+        }
+        onClick={
+          onCommentClick
+        }
+      >
         <FaComment />
+
         <span>
-          {feedActionText.comment}
-          {stats?.comments !== undefined && ` (${stats.comments})`}
+          {
+            feedActionText.comment
+          }
+
+          {stats?.comments !==
+            undefined &&
+            ` (${stats.comments})`}
         </span>
       </div>
 
       {/* SAVE */}
       <div
-        className={styles["post-actions__item"]}
+        className={
+          styles[
+            "post-actions__item"
+          ]
+        }
         onClick={handleSave}
       >
-        <FaBookmark color={saved ? "#2563eb" : ""} />
-        <span>{feedActionText.save}</span>
-      </div>
+        <FaBookmark
+          color={
+            saved
+              ? "#2563eb"
+              : ""
+          }
+        />
 
+        <span>
+          {feedActionText.save}
+        </span>
+      </div>
     </div>
   );
 };

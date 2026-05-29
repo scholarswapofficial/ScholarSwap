@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 import SidebarSection from "./SidebarSection";
 import FeedSection from "./FeedSection";
@@ -9,11 +9,13 @@ import MobileHeaderSection from "./MobileHeaderSection";
 
 import styles from "@/styles/sections/home/layout.module.scss";
 
+
 const LayoutSection = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   // MOBILE SIDEBAR
   const [mobileOpen, setMobileOpen] = useState(false);
+  
 
   return (
     <div
