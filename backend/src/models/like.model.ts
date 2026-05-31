@@ -3,7 +3,7 @@ import mongoose, { Schema, Document } from "mongoose";
 export interface ILike extends Document {
   user: mongoose.Types.ObjectId;
   post: mongoose.Types.ObjectId;
-  type: "like" | "love" | "haha" | "wow" | "sad" | "angry";
+  type: "like"| "heart" | "love" | "haha" | "wow" | "sad" | "angry";
 }
 
 const LikeSchema = new Schema<ILike>({
@@ -21,7 +21,7 @@ const LikeSchema = new Schema<ILike>({
 
   type: {
     type: String,
-    enum: ["like", "love", "haha", "wow", "sad", "angry"],
+    enum: ["like","heart","love", "haha", "wow", "sad", "angry"],
     default: "like",
   },
 

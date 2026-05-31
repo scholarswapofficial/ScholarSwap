@@ -59,7 +59,7 @@ export const getPosts = async ({
     // ⚡ Parallel queries (optimization)
     const [posts, total] = await Promise.all([
       Post.find(filter)
-        .populate("author", "name") // only needed fields
+        .populate("author", "name avatar") // only needed fields
         .sort({ createdAt: -1 }) // latest first
         .skip(skip)
         .limit(limit)
@@ -415,4 +415,44 @@ export const adminDeleteComment = async (commentId: string) => {
   } catch (error: any) {
     throw error;
   }
+};
+
+
+
+
+export const fetchCommentsByPostId = async (
+  postId: string,
+  page: number,
+  limit: number
+) => {
+  if (!mongoose.Types.ObjectId.isValid(postId)) {
+    throw new Error("Invalid Post ID");
+  }
+
+  const skip = (page - 1) * limit;
+
+  // Fetch top-level comments (no parent)
+  const comments = await Comment.find({
+    post: postId,
+    parentComment: null, // only root comments
+  })
+    .populate("user", "name email avatar") // customize fields
+    .sort({ createdAt: -1 })
+    .skip(skip)
+    .limit(limit);
+
+  const totalComments = await Comment.countDocuments({
+    post: postId,
+    parentComment: null,
+  });
+
+  return {
+    comments,
+    pagination: {
+      total: totalComments,
+      page,
+      limit,
+      totalPages: Math.ceil(totalComments / limit),
+    },
+  };
 };

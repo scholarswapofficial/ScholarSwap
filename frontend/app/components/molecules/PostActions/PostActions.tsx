@@ -16,11 +16,15 @@ type PostActionsProps = {
   };
 
   onCommentClick?: () => void;
+  onLikeClick?:()=>void;
+  onPostComment?:()=>void;
 };
 
 const PostActions = ({
   stats,
   onCommentClick,
+  onLikeClick,
+  onPostComment
 }: PostActionsProps) => {
   const [liked, setLiked] =
     useState(false);
@@ -29,10 +33,12 @@ const PostActions = ({
     useState(false);
 
   const handleLike = () => {
+    onLikeClick?.();
     setLiked((prev) => !prev);
   };
 
   const handleSave = () => {
+    onPostComment?.();
     setSaved((prev) => !prev);
   };
 
@@ -78,9 +84,7 @@ const PostActions = ({
             "post-actions__item"
           ]
         }
-        onClick={
-          onCommentClick
-        }
+        onClick={onCommentClick}
       >
         <FaComment />
 
@@ -95,27 +99,7 @@ const PostActions = ({
         </span>
       </div>
 
-      {/* SAVE */}
-      <div
-        className={
-          styles[
-            "post-actions__item"
-          ]
-        }
-        onClick={handleSave}
-      >
-        <FaBookmark
-          color={
-            saved
-              ? "#2563eb"
-              : ""
-          }
-        />
-
-        <span>
-          {feedActionText.save}
-        </span>
-      </div>
+     
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import express from "express";
-import { signup, verifyEmail, login } from "../modules/auth/auth.controller";
+import { signup, verifyEmail, login, logout } from "../modules/auth/auth.controller";
 import { googleLogin } from "../modules/auth/google.controller";
 const router = express.Router();
 
@@ -26,5 +26,9 @@ router.get("/verify-email/:token", verifyEmail);
 
 // ✅ Google login/register
 router.post("/google-login", googleLogin);
+
+
+// Logout (handled on frontend by clearing token cookie)
+router.post("/logout", logout);
 
 export default router;

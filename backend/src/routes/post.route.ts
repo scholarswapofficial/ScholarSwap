@@ -33,4 +33,8 @@ router.delete("/:postId/admin", authProtect, adminProtect, PostController.adminD
 // Admin delete any comment
 router.delete("/delcom/:commentId/admin", authProtect, adminProtect, PostController.adminDeleteCommentController);
 
+//get comment of a post 
+// GET /api/post/comments/:postId?page=1&limit=10
+router.get("/comments/:postId", PostController.getCommentsByPost);
+
 export default router;

@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { verifyGoogleToken } from "../../utils/googleAuth";
 import { User } from "../../models/user.model";
+import {env} from "../../config/env";
 
 export const googleLogin = async (req: Request, res: Response) => {
   try {
@@ -42,6 +43,14 @@ export const googleLogin = async (req: Request, res: Response) => {
       process.env.JWT_SECRET!,
       { expiresIn: "7d" }
     );
+
+    res.cookie("token", jwtToken, {
+    httpOnly: true,          // 🔒 cannot access via JS
+    secure: env.NODE_ENV === "production",           // true in production (HTTPS)
+    sameSite: env.NODE_ENV === "production"? "none":"lax",         // CSRF protection
+    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    });
+
 
     res.json({ user, token: jwtToken });
   } catch (error) {

@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import swaggerUi from "swagger-ui-express";
 
+import cookieParser from "cookie-parser";
+
 import authRoutes from "./routes/auth.routes";
 import profileRoutes from "./routes/profile.route";
 import libraryRoutes from "./routes/library.routes";
@@ -11,11 +13,18 @@ import certificateRoutes from "./routes/certificate.routes";
 import postRoutes from "./routes/post.route";
 import eventRoutes from "./routes/event.route";
 import { swaggerSpec } from "./config/swagger";
+import { env } from "./config/env";
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: env.FRONTEND_URL,
+    credentials: true,
+  })
+);
 app.use(express.json());
+app.use(cookieParser());
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 

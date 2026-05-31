@@ -3,6 +3,24 @@ import { StudentService } from "./profile.service";
 
 
 export class StudentController {
+
+  // ✅ Get My Profile
+  static async getMyProfile(req: Request, res: Response) {
+    try {
+      const {user}=req as any ;
+      const usr = await StudentService.getProfile(user.id);
+      res.json({
+        success: true,
+        data: usr,
+      });
+    }catch (error: any) {
+      res.status(404).json({
+        success: false, 
+        message: error.message,
+      });
+    }
+  }
+
   // ✅ Update Profile
   static async updateProfile(req: Request, res: Response) {
     try {

@@ -14,6 +14,7 @@ function getEnv(key: string, required = true): string {
 
 export const env = {
   PORT: parseInt(process.env.PORT || '5000'),
+  NODE_ENV:getEnv('NODE_ENV'),
 
   MONGO_URI: getEnv('MONGO_URI'),
 

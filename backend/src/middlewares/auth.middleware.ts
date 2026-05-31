@@ -2,7 +2,12 @@ import { Request, Response, NextFunction } from 'express';
 import { verifyToken } from '../utils/jwt';
 
  const authProtect = (req: Request, res: Response, next: NextFunction) => {
-  const token = req.headers.authorization?.split(' ')[1];
+  const token =
+  req.cookies?.token ||
+  req.headers.authorization?.split(" ")[1];
+
+  console.log("Token via cookies", req.cookies?.token); // Debug log
+  console.log("Token via headers", req.headers.authorization?.split(" ")[1]); // Debug log
 
   if (!token) return res.status(401).json({ message: 'Unauthorized' });
 

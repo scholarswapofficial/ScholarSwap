@@ -3,6 +3,7 @@
 import { Document, Page, pdfjs } from "react-pdf";
 import { useEffect, useMemo, useState } from "react";
 import "./pdfViewer.css";
+import {useAuth} from "@/context/AuthContext";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   "pdfjs-dist/build/pdf.worker.min.mjs",
@@ -13,24 +14,19 @@ export default function PdfViewer({ bookId }: { bookId: string }) {
   const [numPages, setNumPages] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
   const [scale, setScale] = useState(1);
-  const [token, setToken] = useState("");
+  const {user}=useAuth();
 
   const userEmail = "user@example.com"; // replace dynamically
 
-  useEffect(() => {
-    setToken(localStorage.getItem("token") || "");
-  }, []);
-
+ 
   const file = useMemo(() => {
-    if (!token) return undefined;
+    if (!user) return undefined;
 
     return {
       url: `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/library/view/${bookId}`,
-      httpHeaders: {
-        Authorization: `${token}`,
-      },
+      
     };
-  }, [bookId, token]);
+  }, [bookId, user]);
 
   const onLoadSuccess = ({ numPages }: { numPages: number }) => {
     setNumPages(numPages);

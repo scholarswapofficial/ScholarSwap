@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import * as postService from "./post.service";
 
+
 export const createPostController = async (req: Request, res: Response) => {
   try {
     const userId = (req as any).user.id; // from JWT middleware
@@ -268,6 +269,42 @@ export const adminDeleteCommentController = async (req: Request, res: Response) 
     return res.status(error.statusCode || 500).json({
       success: false,
       message: error.message || "Internal Server Error",
+    });
+  }
+};
+
+
+export const getCommentsByPost = async (req: Request, res: Response) => {
+  try {
+    const { postId } = req.params;
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 5;
+
+    if (!postId) {
+      return res.status(400).json({
+        success: false,
+        message: "Post ID is required",
+      });
+    }
+
+    const result = await postService.fetchCommentsByPostId(
+      Array.isArray(postId) ? postId[0] : postId,
+      page,
+      limit
+    );
+
+    return res.status(200).json({
+      success: true,
+      message: "Comments fetched successfully",
+      ...result,
+    });
+
+  } catch (error) {
+    console.error("Error fetching comments:", error);
+
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
     });
   }
 };

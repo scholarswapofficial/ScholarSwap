@@ -1,201 +1,108 @@
 import { useState } from "react";
-
+import styles from "@/styles/sections/home/feed.module.scss";
 import PostHeader from "@/components/molecules/PostHeader/PostHeader";
 import PostActions from "@/components/molecules/PostActions/PostActions";
-
-import styles from "@/styles/sections/home/feed.module.scss";
-
-type Post = {
-  id: number;
-  author?: {
-    name?: string;
-    avatar?: string;
-    verified?: boolean;
-    time?: string;
-  };
-  content: {
-    title?: string;
-    description: string;
-  };
-  tags?: string[];
-  media?: {
-    type: "image" | "pdf";
-    url: string;
-    label?: string;
-  };
-  stats?: {
-    likes: number;
-    comments: number;
-    views: number;
-  };
-};
+import { PostInterface } from "@/interface/post.interface";
+import { timeAgo } from "@/utils/timeAgo";
 
 type PostCardProps = {
-  post: Post;
+  post: PostInterface;
 };
 
-const PostCard = ({
-  post,
-}: PostCardProps) => {
-  const [showCommentBox, setShowCommentBox] =
-    useState(false);
+const PostCard = ({ post }: PostCardProps) => {
+  const [showCommentBox, setShowCommentBox] = useState(false);
+  const [comment, setComment] = useState("");
 
-  const [comment, setComment] =
-    useState("");
-
+  const handlePostLike=()=>{
+    console.log("Liked post:", post._id);
+  }
+  const handlePostComment=()=>{
+    console.log("Commented on post:", post._id);
+  }
+  // Handle author (populated or not)
   const authorName =
-    post.author?.name || "Unknown";
-
-  const authorTime =
-    post.author?.time || "";
+    typeof post.author === "object"
+      ? post.author?.name || "Unknown"
+      : "Unknown";
 
   const authorAvatar =
-    post.author?.avatar;
+    typeof post.author === "object"
+      ? post.author?.avatar
+      : undefined;
 
   const handleCommentPost = () => {
     if (!comment.trim()) return;
 
-    console.log(
-      "Comment:",
-      comment
-    );
-
+    console.log("Comment:", comment);
     setComment("");
     setShowCommentBox(false);
   };
 
   return (
-    <div
-      className={styles["post-card"]}
-    >
+    <div className={styles["post-card"]}>
+      
       {/* Header */}
       <PostHeader
         user={authorName}
-        time={authorTime}
+        time={timeAgo(post.createdAt)}
         avatar={authorAvatar}
       />
 
       {/* Content */}
-      <div
-        className={
-          styles["post-card__content"]
-        }
-      >
-        {post.content?.title && (
-          <h3
-            className={
-              styles[
-                "post-card__title"
-              ]
-            }
-          >
-            {post.content.title}
+      <div className={styles["post-card__content"]}>
+        {post.title && (
+          <h3 className={styles["post-card__title"]}>
+            {post.title}
           </h3>
         )}
 
-        <p
-          className={
-            styles[
-              "post-card__description"
-            ]
-          }
-        >
-          {post.content.description}
+        <p className={styles["post-card__description"]}>
+          {post.content}
         </p>
       </div>
 
       {/* Tags */}
-      {post.tags?.length ? (
-        <div
-          className={
-            styles["post-card__tags"]
-          }
-        >
-          {post.tags.map(
-            (tag, index) => (
-              <span
-                key={index}
-                className={
-                  styles[
-                    "post-card__tag"
-                  ]
-                }
-              >
-                #{tag}
-              </span>
-            )
-          )}
-        </div>
-      ) : null}
-
-      {/* Media */}
-      {post.media?.url && (
-        <div
-          className={
-            styles["post-card__media"]
-          }
-        >
-          <img
-            src={post.media.url}
-            alt="post media"
-            onError={(e) => {
-              e.currentTarget.style.display =
-                "none";
-            }}
-          />
-
-          {post.media.label && (
+      {post.tags?.length > 0 && (
+        <div className={styles["post-card__tags"]}>
+          {post.tags.map((tag, index) => (
             <span
-              className={
-                styles[
-                  "post-card__media-label"
-                ]
-              }
+              key={index}
+              className={styles["post-card__tag"]}
             >
-              {post.media.label}
+              #{tag}
             </span>
-          )}
+          ))}
         </div>
       )}
 
       {/* Actions */}
       <PostActions
-        stats={post.stats}
+        stats={{
+          likes: post.likesCount,
+          comments: post.commentsCount,
+          views: 0, // not in schema yet
+        }}
         onCommentClick={() =>
-          setShowCommentBox(
-            !showCommentBox
-          )
+          setShowCommentBox(!showCommentBox)
         }
+        onLikeClick={handlePostLike}
+        onPostComment={handlePostComment}
       />
 
-      {/* Comment Slider */}
+      {/* Comment Box */}
       {showCommentBox && (
-        <div
-          className={
-            styles[
-              "post-card__comment-box"
-            ]
-          }
-        >
+        <div className={styles["post-card__comment-box"]}>
           <textarea
             placeholder="Write a comment..."
             value={comment}
             onChange={(e) =>
-              setComment(
-                e.target.value
-              )
+              setComment(e.target.value)
             }
           />
 
           <button
-            className={
-              styles[
-                "post-card__comment-post"
-              ]
-            }
-            onClick={
-              handleCommentPost
-            }
+            className={styles["post-card__comment-post"]}
+            onClick={handleCommentPost}
           >
             Post
           </button>

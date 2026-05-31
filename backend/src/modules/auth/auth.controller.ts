@@ -146,13 +146,40 @@ export const login = async (req: Request, res: Response) => {
 
     const { user, token } = await loginService(email, password);
 
-    res.json({ user, token });
+     // ✅ send token in cookie
+    res.cookie("token", token, {
+    httpOnly: true,          // 🔒 cannot access via JS
+    secure: env.NODE_ENV === "production",           // true in production (HTTPS)
+    sameSite: env.NODE_ENV === "production"? "none":"lax",         // CSRF protection
+    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    });
+    res.status(200).json({ user, token });
 
   } catch (err: any) {
     res.status(400).json({ message: err.message });
   }
 };
 
+export const logout = (req: Request, res: Response) => {
+  try {
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: env.NODE_ENV === "production",
+      sameSite:
+        env.NODE_ENV === "production" ? "none" : "lax",
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "Logged out successfully",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Logout failed",
+    });
+  }
+};
 
 export { signupService };
 

@@ -8,6 +8,7 @@ import "@/styles/sections/home/sidebar.module.scss";
 import "@/styles/sections/auth/footer.module.scss";
 import "@/styles/sections/home/feed.module.scss";
 import "@/styles/sections/home/rightpanel.module.scss";
+import ToastProvider from "./components/Toast/ToastProvider";
 
 import { AuthProvider } from "./context/AuthContext";
 import GoogleProvider from "./components/google/GoogleProvider";
@@ -130,8 +131,13 @@ export default function RootLayout({
           }}
         />
 
+
         <GoogleProvider>
-          <AuthProvider>{children}</AuthProvider>
+          <AuthProvider>
+            {children}
+            <ToastProvider />
+
+          </AuthProvider>
         </GoogleProvider>
       </body>
     </html>
