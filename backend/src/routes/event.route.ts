@@ -28,4 +28,8 @@ router.patch("/status-update/:eventId/admin", authProtect,adminProtect, eventCon
 // Admin route to delete an event
 router.delete("/delete-event/:eventId/admin", authProtect,adminProtect, eventController.deleteEvent);
 
-export default router;
+// 
+router.get("/:eventId", eventController.getEventById);
+router.get("/redirect/:eventId", eventController. redirectToEvent);
+
+export default router;  

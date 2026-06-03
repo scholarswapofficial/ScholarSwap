@@ -14,7 +14,8 @@ type MulterFile = {
   buffer: Buffer;
 };
 import * as eventService from "./event.service";
-import { buffer } from "node:stream/consumers";
+
+import {Event} from "../../models/event.model";
 
 interface AuthRequest extends Request {
   user?: { id: string };
@@ -184,5 +185,48 @@ export const deleteEvent = async (req: Request, res: Response) => {
       success: false,
       message: error.message || "Internal Server Error",
     });
+  }
+};
+
+
+export const getEventById = async (req:Request, res:Response) => {
+  try {
+    const { eventId } = req.params;
+
+    const event = await Event.findByIdAndUpdate(
+      eventId,
+      { $inc: { views: 1 } }, // 🔥 increment view
+      { returnDocument: "after" }
+    );
+
+    if (!event) {
+      return res.status(404).json({ message: "Event not found" });
+    }
+
+    res.json({ success: true, data: event });
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+// GET /api/event/redirect/:id
+export const redirectToEvent = async (req:Request, res:Response) => {
+  try {
+    const { eventId } = req.params;
+
+    const event = await Event.findByIdAndUpdate(
+      eventId,
+      { $inc: { clicks: 1 } }, // 🔥 increment click
+      { returnDocument: "after" }
+    );
+
+    if (!event || !event.redirectUrl) {
+      return res.status(404).json({ message: "Invalid event" });
+    }
+
+    // 🔥 redirect user
+    return res.redirect(event.redirectUrl);
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
   }
 };

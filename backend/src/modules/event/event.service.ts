@@ -201,7 +201,7 @@ export const getEventsByStatus = async ({
 
   const [events, total] = await Promise.all([
     Event.find(filter)
-      .select("_id title slug status posterImage createdAt")
+      .select("_id title slug status posterImage bannerImage mode createdAt")
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit),
@@ -267,7 +267,7 @@ export const updateEventStatus = async ({
   const event = await Event.findOneAndUpdate(
     { _id: eventId },
     updateData,
-    { new: true }
+    { returnDocument: "after" } 
   ).select("_id title status approvedAt rejectionReason");
 
   if (!event) {
