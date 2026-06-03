@@ -12,6 +12,7 @@ import {
   RiShoppingBag3Line,
   RiGraduationCapLine,
   RiLineChartLine,
+  RiCalendarEventLine,
 } from "react-icons/ri";
 
 import "@/styles/sections/admin/adminSidebar.scss";
@@ -118,6 +119,21 @@ const AdminSidebar = () => {
           <RiGraduationCapLine />
 
           <span>Courses</span>
+        </Link>
+
+        {/* -------------------------- EVENTS ------------------------- */}
+
+        <Link
+          href="/admin/events"
+          className={`admin-sidebar__item ${
+            isActive("/admin/events")
+              ? "active"
+              : ""
+          }`}
+        >
+          <RiCalendarEventLine />
+
+          <span>Events</span>
         </Link>
 
         {/* -------------------------- TRENDS ------------------------- */}
